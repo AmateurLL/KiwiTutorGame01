@@ -44,18 +44,3 @@ public class CSS_Player : MonoBehaviour
         this.m_rig2D.velocity = targetVelo;
     }
 }
-
-//if (m_rig2D.gravityScale >= 1.0f)
-//{
-//    goUp = false;
-//}
-//else if (m_rig2D.gravityScale < -1.0f)
-//{
-//    goUp = true;
-//}
-//
-//if (goUp == true)
-//{
-//
-//}
-//m_rig2D.rotation += 1.0f;
