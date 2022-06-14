@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CSS_Spin : MonoBehaviour
+public class CSS_StupidGravity : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D m_rig2D;
     bool goUp = false;
