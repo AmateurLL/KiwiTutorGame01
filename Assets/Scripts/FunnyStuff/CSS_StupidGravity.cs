@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class CSS_StupidGravity : MonoBehaviour
 {
+    //Defines a component and variable
     [SerializeField] private Rigidbody2D m_rig2D;
     bool goUp = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
+        // If the velocity is too high or low it gets inverted
         if (m_rig2D.gravityScale >= 3.0f)
         {
             goUp = true;
