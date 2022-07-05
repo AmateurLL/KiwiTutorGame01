@@ -20,8 +20,9 @@ public class CSS_Player : MonoBehaviour
     private bool isFacingRight = true;
     private bool isGrounded;
     public float spdMod;
-    public float isTimeUp;
-    private float TBearTrapTimer;
+    public int hp;
+    private float modifyTime;
+    private bool isAffected = false; //Controls modification time
     Vector2 movement;
     // (is funny) Vector2 moveRight = new Vector2(1, 0);
 
@@ -35,7 +36,7 @@ public class CSS_Player : MonoBehaviour
         this.horiMove = 20.0f;
         this.jumpPower = 12.5f;
         this.spdMod = 1.0f;
-        this.TBearTrapTimer = 3.0f;
+        this.hp = 100;
     }
     // Runs when the player is initialized
     void Awake()
@@ -48,7 +49,7 @@ public class CSS_Player : MonoBehaviour
     {
         // Assigns horiMove (float) to the value given by moving on the horizontal axis
         // (-1 --> 1 and vice versa), multiplied by the variable runSpd (float).
-        horiMove = Input.GetAxisRaw("Horizontal") * this.runSpd;
+        horiMove = Input.GetAxisRaw("Horizontal") * this.runSpd * this.spdMod;
 
         // If the space key is pressed, and the circle collider from the child object PlayerGroundCheck by accessing the script.
         // Is touching an object with the tag "Grounded", you are able to jump.
@@ -56,6 +57,8 @@ public class CSS_Player : MonoBehaviour
         {
             this.isJumping = true;
         }
+
+        ModCountdown();
     }
     // Runs Movement() repeatedly after a fixed period of time.
     private void FixedUpdate()
@@ -75,25 +78,75 @@ public class CSS_Player : MonoBehaviour
         {
             // This code makes the player jump equal to the jumpPover (float).
             // It then makes it so the player can not jump again until they touch the ground.
-            this.movement.y = this.jumpPower;
+            this.movement.y = this.jumpPower * this.spdMod;
             this.isJumping = false;
             m_GroundCheckCol.GetComponent<CSS_PlayerGroundCheck>().SetisGrounded(false);
         }
         // This sets the player's rigidbody velocity to the player's calculated movement (float).
         this.m_rig2D.velocity = this.movement;
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    // Modifies the player's speed.
+    private void ModCountdown()
     {
-        if (collision.gameObject.tag == "TBearTrap")
+        //If the boolean is true (which can be changed from other scripts), then the timer will count down,
+        //and upon raching 0 everything will be reset.
+        if (isAffected)
         {
-            spdMod = 0.25f;
-            TBearTrapTimer -= Time.deltaTime;
-            if (TBearTrapTimer <= 0.0f)
+            modifyTime -= Time.deltaTime;
+            if (modifyTime <= 0.0f)
             {
                 spdMod = 1.0f;
-                TBearTrapTimer = 3.0f;
+                isAffected = false;
             }
         }
+    }
+
+    //Getters and setters
+    public void SetModTime(float _modTime)
+    {
+        modifyTime = _modTime;
+    }
+
+    public float GetModTime()
+    {
+        return this.modifyTime;
+    }
+    public void SetAffect(bool _isAffect)
+    {
+        isAffected = _isAffect;
+    }
+
+    public bool GetAffect()
+    {
+        return this.isAffected;
+    }
+
+    public void SetSpdMod(float _spdMod)
+    {
+        spdMod = _spdMod;
+    }
+
+    public float GetSpdMod()
+    {
+        return this.spdMod;
+    }
+
+    public void SetHP(int _health)
+    {
+        hp = _health;
+    }
+
+    public int GetHP()
+    {
+        return this.hp;
+    }
+
+    public void ModifyHP(int _health)
+    {
+        hp += _health;
+    }
+    public Rigidbody2D GetRigid()
+    {
+        return this.m_rig2D;
     }
 }

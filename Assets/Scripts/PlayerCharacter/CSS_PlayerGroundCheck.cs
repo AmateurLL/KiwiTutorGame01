@@ -14,7 +14,7 @@ public class CSS_PlayerGroundCheck : MonoBehaviour
     {
         // If the circle collider is in contact with an object with the tag "Ground" as well as the boolean
         // "isGrounded" being false, "isGrounded" will become true, allowing the player to jump.
-        if (collision.gameObject.tag == "Ground" && isGrounded == false)
+        if (collision.gameObject.tag == "Ground" && isGrounded == false || collision.gameObject.tag == "Trap" && isGrounded == false)
         {
             isGrounded = true;
         }
