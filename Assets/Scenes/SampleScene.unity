@@ -276,11 +276,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 502015029}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea115624465365a4188e035ab35d02c2, type: 3}
+  m_Script: {fileID: 11500000, guid: 7379d3a58255fcf49b6aab0498067606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 10
-  timeModifier: 1
+  damage: 2147483647
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,10 +581,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54fd9d697520035419ba5b66ca81855c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 10
+  damage: 1
   m_circle2D: {fileID: 0}
-  fuseTime: 3
-  timeModifier: 1
-  playerRef: {fileID: 0}
+  knockbackPower: 45
+  knockbackDuartion: 0.01
 --- !u!1 &907300477
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,9 +826,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72c16e71e2692c648b120272849653cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_box2D: {fileID: 0}
   lifeTime: 10
-  deteriorationModifier: 1
+  damage: 1
+  m_box2D: {fileID: 0}
 --- !u!1 &1566152907
 GameObject:
   m_ObjectHideFlags: 0
@@ -1112,6 +1113,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6457321681829276592, guid: 1e24fefa3a573a74c8442fa15f6bd12b, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6457321681829276592, guid: 1e24fefa3a573a74c8442fa15f6bd12b, type: 3}
       propertyPath: m_GravityScale
       value: 2.5
