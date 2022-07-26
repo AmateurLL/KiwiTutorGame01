@@ -58,6 +58,10 @@ public class CSS_Player : MonoBehaviour
             this.isJumping = true;
         }
 
+        if (hp <= 0)
+        {
+            Debug.Log("u die");
+        }
         ModCountdown();
     }
     // Runs Movement() repeatedly after a fixed period of time.

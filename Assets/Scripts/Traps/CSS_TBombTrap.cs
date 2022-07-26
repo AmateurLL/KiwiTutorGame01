@@ -15,6 +15,7 @@ public class CSS_TBombTrap : CSS_Trap
     {
         this.m_circle2D = this.GetComponent<CircleCollider2D>();
         this.isExplode = false;
+        this.SetLifeTime(10.0f);
     }
 
     private void Awake()
@@ -30,7 +31,7 @@ public class CSS_TBombTrap : CSS_Trap
 
     public override void Deterioration()
     {
-        this.SetLifeTime(-(this.GetTimeModifier() * Time.deltaTime));
+        this.SetLifeTime(this.GetLifeTime()-(this.GetTimeModifier() * Time.deltaTime));
         if (this.GetLifeTime() <= 0.0f)
         {
             Debug.Log("explosion or something");

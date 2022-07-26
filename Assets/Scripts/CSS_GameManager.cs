@@ -8,6 +8,11 @@ public class CSS_GameManager : MonoBehaviour
     public static CSS_GameManager Instance { get; private set; }
     [Header("References")]
     [SerializeField] public GameObject playerRef;
+    [SerializeField] public GameObject TBlockTrapRef;
+    [SerializeField] public GameObject TBearTrapRef;
+    [SerializeField] public GameObject TBombTrapRef;
+    [SerializeField] public GameObject TNukeTrapRef;
+    [SerializeField] public GameObject TTrollBoxTrapRef;
 
     private void Awake()
     {
