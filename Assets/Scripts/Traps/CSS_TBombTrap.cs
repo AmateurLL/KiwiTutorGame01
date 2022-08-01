@@ -15,7 +15,7 @@ public class CSS_TBombTrap : CSS_Trap
     {
         this.m_circle2D = this.GetComponent<CircleCollider2D>();
         this.isExplode = false;
-        this.SetLifeTime(10.0f);
+        this.SetLifeTime(3.0f);
     }
 
     private void Awake()
@@ -29,6 +29,7 @@ public class CSS_TBombTrap : CSS_Trap
         this.Deterioration();
     }
 
+    // Fuze deterioration
     public override void Deterioration()
     {
         this.SetLifeTime(this.GetLifeTime()-(this.GetTimeModifier() * Time.deltaTime));
@@ -44,15 +45,14 @@ public class CSS_TBombTrap : CSS_Trap
     {
         if (collision.gameObject.tag == "Player" && isExplode)
         {
-            //Trapped(collision.gameObject);
             Debug.Log("boom");
 
-            Vector2 playerObject = new Vector2(collision.gameObject.transform.position.x, collision.gameObject.transform.position.y);
-            Vector2 currentPosition = new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y);
-            Vector2 direction = (playerObject - currentPosition).normalized;
-            CSS_GameManager.Instance.playerRef.GetComponent<CSS_Player>().GetRigid().AddForce(direction * knockbackPower, ForceMode2D.Impulse);
-            
-            isExplode = false;
+            //Vector2 direction = (collision.gameObject.transform.position - this.transform.position).normalized;
+            //CSS_GameManager.Instance.playerRef.GetComponent<CSS_Player>().GetRigid().AddForce(direction * knockbackPower, ForceMode2D.Impulse);
+            collision.gameObject.GetComponent<CSS_Player>().GetIsKnockedBackInstance().KnockBack(this.gameObject);
+            //Debug.Log(direction);
+
+            //isExplode = false;
             Object.Destroy(this.gameObject);
         }
     }
