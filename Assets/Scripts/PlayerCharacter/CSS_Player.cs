@@ -9,6 +9,7 @@ public class CSS_Player : MonoBehaviour
     [Header("Components")]
     [SerializeField] private Rigidbody2D m_rig2D;
     [SerializeField] private Transform m_GroundCheckCol;
+    [SerializeField] private CSS_EFFKnockback m_KBInstance;
 
     //List of variables and controls (of the Player)
     [Space]
@@ -22,7 +23,7 @@ public class CSS_Player : MonoBehaviour
     public float spdMod;
     public int hp;
     private float modifyTime;
-    private bool isAffected = false; //Controls modification time
+    [SerializeField] private bool isAffected = false; //Controls modification time
     Vector2 movement;
     // (is funny) Vector2 moveRight = new Vector2(1, 0);
 
@@ -31,6 +32,7 @@ public class CSS_Player : MonoBehaviour
     {
         this.m_rig2D = this.GetComponent<Rigidbody2D>();
         this.m_GroundCheckCol = this.transform.GetChild(1);
+        this.m_KBInstance = this.GetComponent<CSS_EFFKnockback>();
         this.movement = new Vector2(0, 0);
         this.runSpd = 7.0f;
         this.horiMove = 20.0f;
@@ -38,6 +40,7 @@ public class CSS_Player : MonoBehaviour
         this.spdMod = 1.0f;
         this.hp = 100;
     }
+
     // Runs when the player is initialized
     void Awake()
     {
@@ -64,18 +67,29 @@ public class CSS_Player : MonoBehaviour
         }
         ModCountdown();
     }
+
     // Runs Movement() repeatedly after a fixed period of time.
     private void FixedUpdate()
     {
         this.Movement();
     }
+
     // This function controlls the player movement.
     public void Movement()
     {
         // Movement is a vector 2. These hold a x (horizontal) and y (vertical) value.
         // The horizontal position is equal to the horizontal movement, and the vertical position is equal to the velocity on the y axis.
-        this.movement.x = horiMove;
-        this.movement.y = this.m_rig2D.velocity.y;
+        if (!this.m_KBInstance.GetIsKnockBack())
+        {
+            this.movement.x = horiMove;
+            this.movement.y = this.m_rig2D.velocity.y;
+        }
+        else
+        {
+            this.movement.x = this.m_rig2D.velocity.x;
+            this.movement.y = this.m_rig2D.velocity.y;
+        }
+
         //Old idea for movement - Vector3 targetVelo = new Vector2((horiMove * Time.fixedDeltaTime) * 10f, this.m_rig2D.velocity.y);
         //If jumping is true, the if statment has been fufilled
         if (this.isJumping)
@@ -86,9 +100,11 @@ public class CSS_Player : MonoBehaviour
             this.isJumping = false;
             m_GroundCheckCol.GetComponent<CSS_PlayerGroundCheck>().SetisGrounded(false);
         }
+
         // This sets the player's rigidbody velocity to the player's calculated movement (float).
         this.m_rig2D.velocity = this.movement;
     }
+
     // Modifies the player's speed.
     private void ModCountdown()
     {
@@ -105,6 +121,7 @@ public class CSS_Player : MonoBehaviour
         }
     }
 
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
     //Getters and setters
     public void SetModTime(float _modTime)
     {
@@ -152,5 +169,10 @@ public class CSS_Player : MonoBehaviour
     public Rigidbody2D GetRigid()
     {
         return this.m_rig2D;
+    }
+
+    public CSS_EFFKnockback GetIsKnockedBackInstance()
+    {
+        return this.m_KBInstance;
     }
 }

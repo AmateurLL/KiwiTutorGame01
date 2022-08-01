@@ -896,7 +896,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1821543584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1226,6 +1226,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6457321681829276594, guid: 1e24fefa3a573a74c8442fa15f6bd12b, type: 3}
   m_PrefabInstance: {fileID: 6457321680103449699}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &2065829843 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 6457321681829276592, guid: 1e24fefa3a573a74c8442fa15f6bd12b, type: 3}
+  m_PrefabInstance: {fileID: 6457321680103449699}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2065829845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993679836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d25fee41e38df24980469bc3bea8c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Rig2D: {fileID: 2065829843}
+  knockbackPower: 25
+  knockbackDuartion: 0.15
+  isKnockedBack: 0
 --- !u!1 &2092918354
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,7 +1264,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2092918355
 Transform:
   m_ObjectHideFlags: 0
@@ -1312,6 +1333,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BearTrapObj
       objectReference: {fileID: 0}
+    - target: {fileID: 64475683916143711, guid: 3aa2752a15cbde445ad921673737c3fc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 64475683916143713, guid: 3aa2752a15cbde445ad921673737c3fc, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1371,7 +1396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 412968484371997124, guid: fc628a2a9bcaafa4982a2e432cd6c2ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.5
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 412968484371997124, guid: fc628a2a9bcaafa4982a2e432cd6c2ae, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1409,9 +1434,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 412968484371997125, guid: fc628a2a9bcaafa4982a2e432cd6c2ae, type: 3}
+      propertyPath: knockbackPower
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 412968484371997125, guid: fc628a2a9bcaafa4982a2e432cd6c2ae, type: 3}
+      propertyPath: knockbackDuartion
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 412968484371997126, guid: fc628a2a9bcaafa4982a2e432cd6c2ae, type: 3}
       propertyPath: m_Name
       value: BombTrapObj
+      objectReference: {fileID: 0}
+    - target: {fileID: 412968484371997126, guid: fc628a2a9bcaafa4982a2e432cd6c2ae, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc628a2a9bcaafa4982a2e432cd6c2ae, type: 3}
@@ -1537,8 +1574,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6457321681829276592, guid: 1e24fefa3a573a74c8442fa15f6bd12b, type: 3}
-      propertyPath: m_Mass
-      value: 1
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6457321681829276592, guid: 1e24fefa3a573a74c8442fa15f6bd12b, type: 3}
       propertyPath: m_GravityScale
@@ -1547,6 +1584,10 @@ PrefabInstance:
     - target: {fileID: 6457321681829276592, guid: 1e24fefa3a573a74c8442fa15f6bd12b, type: 3}
       propertyPath: m_SleepingMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6457321681829276592, guid: 1e24fefa3a573a74c8442fa15f6bd12b, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6457321681829276594, guid: 1e24fefa3a573a74c8442fa15f6bd12b, type: 3}
       propertyPath: m_RootOrder
