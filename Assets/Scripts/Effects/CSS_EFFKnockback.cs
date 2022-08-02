@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Dynamic Component (Can be used on any other object)
 public class CSS_EFFKnockback : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D m_Rig2D;

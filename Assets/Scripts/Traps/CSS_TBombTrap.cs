@@ -8,8 +8,8 @@ public class CSS_TBombTrap : CSS_Trap
     //Variables of the Trap object
     [SerializeField] private CircleCollider2D m_circle2D;
     private bool isExplode;
-    public float knockbackPower = 100;
-    public float knockbackDuartion = 1;
+    //public float knockbackPower = 100;
+    //public float knockbackDuartion = 1;
 
     void Init()
     {

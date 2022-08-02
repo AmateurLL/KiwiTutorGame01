@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using TMPro;
 
 public class CSS_TNukeTrap : CSS_Trap
 {
     public float TimeLeft;
     public bool TimerOn = false;
-
-    public Text TimerTxt;
+    public TextMeshPro TimerTxt;
 
     void Awake()
     {
         TimerOn = true;
-        this.SetLifeTime(5.0f);
+        //this.SetLifeTime(5.0f);
         this.SetDamage(-1000);
     }
 
@@ -30,7 +31,7 @@ public class CSS_TNukeTrap : CSS_Trap
         if (this.GetLifeTime() <= 0.0f)
         {
             CSS_GameManager.Instance.playerRef.transform.GetComponent<CSS_Player>().ModifyHP(this.GetDamage());
-            Object.Destroy(this.gameObject);
+            UnityEngine.Object.Destroy(this.gameObject);
         }
     }
 
@@ -47,7 +48,7 @@ public class CSS_TNukeTrap : CSS_Trap
             {
                 TimeLeft = 0;
                 TimerOn = false;
-                Object.Destroy(this.gameObject);
+                UnityEngine.Object.Destroy(this.gameObject);
             }
         }
     }
@@ -55,8 +56,10 @@ public class CSS_TNukeTrap : CSS_Trap
     {
         currentTime += 1;
         float minutes = Mathf.FloorToInt(currentTime / 60);
-        float seconds = Mathf.FloorToInt(currentTime % 60);
+        float seconds = Mathf.FloorToInt((currentTime % 60) - 1);
+        float milliseconds = Mathf.FloorToInt(((currentTime % 60) * 100) - 1);
 
-        TimerTxt.text = string.Format("{0:00} : {1:00}", minutes, seconds);
+        //TimerTxt.text = string.Format("{0:00} : {1:00}", seconds, milliseconds);
+        TimerTxt.text = TimeSpan.FromSeconds(TimeLeft).ToString("ss\\.ff");
     }
 }

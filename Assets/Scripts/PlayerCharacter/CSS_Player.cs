@@ -10,6 +10,7 @@ public class CSS_Player : MonoBehaviour
     [SerializeField] private Rigidbody2D m_rig2D;
     [SerializeField] private Transform m_GroundCheckCol;
     [SerializeField] private CSS_EFFKnockback m_KBInstance;
+    private Transform playerObjTrans;
 
     //List of variables and controls (of the Player)
     [Space]
@@ -39,6 +40,7 @@ public class CSS_Player : MonoBehaviour
         this.jumpPower = 12.5f;
         this.spdMod = 1.0f;
         this.hp = 100;
+        this.playerObjTrans = this.transform;
     }
 
     // Runs when the player is initialized
@@ -174,5 +176,15 @@ public class CSS_Player : MonoBehaviour
     public CSS_EFFKnockback GetIsKnockedBackInstance()
     {
         return this.m_KBInstance;
+    }
+
+    public Transform GetPlayerObjTrans()
+    {
+        return this.playerObjTrans;
+    }
+
+    public void SetPlayerObjTrans(Vector3 _trans)
+    {
+        playerObjTrans.position = _trans;
     }
 }

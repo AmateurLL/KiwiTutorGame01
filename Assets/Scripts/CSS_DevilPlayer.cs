@@ -57,7 +57,7 @@ public class CSS_DevilPlayer : MonoBehaviour
     {
         if (spawnTimer <= 0)
         {
-            Instantiate(CSS_GameManager.Instance.TBearTrapRef, new Vector3(mousePos2D.x, mousePos2D.y, 0), Quaternion.identity);
+            Instantiate(CSS_GameManager.Instance.TNukeTrapRef, new Vector3(mousePos2D.x, mousePos2D.y, 0), Quaternion.identity);
             spawnTimer = 3.0f;
         }
         else

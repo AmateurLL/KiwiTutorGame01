@@ -37,9 +37,10 @@ public class CSS_NukeTimer : CSS_TNukeTrap
     void updateTimer(float currentTime)
     {
         currentTime += 1;
-        float minutes = Mathf.FloorToInt(currentTime / 60);
+        //float minutes = Mathf.FloorToInt(currentTime / 60);
         float seconds = Mathf.FloorToInt(currentTime % 60);
+        float milliseconds = Mathf.FloorToInt((currentTime % 60) * 10);
 
-        TimerTxt.text = string.Format("{0:00} : {1:00}", minutes, seconds);
+        TimerTxt.text = string.Format("{1:00}:{2:000}", seconds, milliseconds);
     }
 }
