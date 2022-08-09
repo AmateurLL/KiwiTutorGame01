@@ -13,6 +13,8 @@ public class CSS_GameManager : MonoBehaviour
     [SerializeField] public GameObject TBombTrapRef;
     [SerializeField] public GameObject TNukeTrapRef;
     [SerializeField] public GameObject TTrollBoxTrapRef;
+    [SerializeField] public GameObject cameraPosRef;
+    [SerializeField] public GameObject cameraRef;
 
     private void Awake()
     {
