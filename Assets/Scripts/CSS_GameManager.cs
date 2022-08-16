@@ -8,11 +8,13 @@ public class CSS_GameManager : MonoBehaviour
     public static CSS_GameManager Instance { get; private set; }
     [Header("References")]
     [SerializeField] public GameObject playerRef;
+    [SerializeField] public GameObject selectedTrapRef;
     [SerializeField] public GameObject TBlockTrapRef;
     [SerializeField] public GameObject TBearTrapRef;
     [SerializeField] public GameObject TBombTrapRef;
     [SerializeField] public GameObject TNukeTrapRef;
     [SerializeField] public GameObject TTrollBoxTrapRef;
+    [SerializeField] public GameObject spinningBoxRef;
     [SerializeField] public GameObject cameraPosRef;
     [SerializeField] public GameObject cameraRef;
 
@@ -27,10 +29,5 @@ public class CSS_GameManager : MonoBehaviour
             Destroy(this);
         }
 
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 }

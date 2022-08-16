@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class CSS_TTrollBoxTrap : CSS_Trap
 {
-    [SerializeField] private float trollCD = 0.2f;
+    [SerializeField] private float trollCD = 0.1f;
     private float trollModifier = 1.0f;
     private bool doDMG;
+    [SerializeField] private Vector3 _spinClown;
     // Start is called before the first frame update
     void Awake()
     {
         this.SetDamage(-1);
         this.doDMG = true;
+        this._spinClown = new Vector3(0, 0, 75);
     }
 
     // Update is called once per frame
@@ -22,8 +24,10 @@ public class CSS_TTrollBoxTrap : CSS_Trap
         if (trollCD <= 0.0f)
         {
             doDMG = true;
+            trollCD = 0.1f;
         }
         Deterioration();
+        SpinSprite();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -33,5 +37,10 @@ public class CSS_TTrollBoxTrap : CSS_Trap
             CSS_GameManager.Instance.playerRef.transform.GetComponent<CSS_Player>().ModifyHP(this.GetDamage());
             doDMG = false;
         }
+    }
+
+    public void SpinSprite()
+    {
+        this.transform.GetChild(0).transform.Rotate(_spinClown * Time.deltaTime);
     }
 }
