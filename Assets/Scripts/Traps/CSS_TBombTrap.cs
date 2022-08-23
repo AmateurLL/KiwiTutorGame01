@@ -32,12 +32,11 @@ public class CSS_TBombTrap : CSS_Trap
     // Fuze deterioration
     public override void Deterioration()
     {
-        this.SetLifeTime(this.GetLifeTime()-(this.GetTimeModifier() * Time.deltaTime));
+        this.SetLifeTime(this.GetLifeTime() - (this.GetTimeModifier() * Time.deltaTime));
         if (this.GetLifeTime() <= 0.0f)
         {
             Debug.Log("explosion or something");
             isExplode = true;
-
         }
     }
 
@@ -51,9 +50,8 @@ public class CSS_TBombTrap : CSS_Trap
             //CSS_GameManager.Instance.playerRef.GetComponent<CSS_Player>().GetRigid().AddForce(direction * knockbackPower, ForceMode2D.Impulse);
             collision.gameObject.GetComponent<CSS_Player>().GetIsKnockedBackInstance().KnockBack(this.gameObject);
             //Debug.Log(direction);
-
-            //isExplode = false;
             Object.Destroy(this.gameObject);
+            //isExplode = false;
         }
     }
 

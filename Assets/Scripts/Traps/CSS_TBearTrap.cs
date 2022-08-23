@@ -7,7 +7,7 @@ public class CSS_TBearTrap : CSS_Trap
     [SerializeField] private BoxCollider2D m_box2D;
 
     bool isTrapped;
-    bool isTimeUp;
+    //bool isTimeUp;
     public void Init()
     {
         this.SetDamage(-10);
@@ -47,8 +47,8 @@ public class CSS_TBearTrap : CSS_Trap
         _player.transform.GetComponent<CSS_Player>().SetAffect(true);
     }
 
-    public bool GetIsTimeUp()
-    {
-        return this.isTimeUp;
-    }
+    //ublic bool GetIsTimeUp()
+    //{
+        //return this.isTimeUp;
+    //}
 }
