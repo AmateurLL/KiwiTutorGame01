@@ -24,6 +24,8 @@ public class CSS_GameTimer : MonoBehaviour
     {
         if (TimerOn)
         {
+            // 60 x 5 = 300, 300 seconds is 5 mins
+            // Calculates when the game should end
             if (TimeLeft <= 300.0f)
             {
                 TimeLeft += Time.deltaTime;
@@ -40,10 +42,9 @@ public class CSS_GameTimer : MonoBehaviour
 
     void updateTimer(float currentTime)
     {
-        currentTime += 1;
         float minutes = Mathf.FloorToInt(currentTime / 60);
         float seconds = Mathf.FloorToInt(currentTime % 60);
 
-        this.GetComponent<TMP_Text>().text = TimeLeft.ToString("0.00");
+        this.GetComponent<TMP_Text>().text = string.Format("{0:0}:{1:00}", minutes, seconds);
     }
 }

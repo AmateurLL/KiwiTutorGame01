@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CSS_GameManager : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class CSS_GameManager : MonoBehaviour
     [SerializeField] public GameObject cameraPosRef;
     [SerializeField] public GameObject cameraRef;
 
+    [Space]
+    [Header("Game Stats")]
+    [SerializeField] private bool isWin = false;
+
     private void Awake()
     {
         if (Instance == null)
@@ -29,5 +34,24 @@ public class CSS_GameManager : MonoBehaviour
             Destroy(this);
         }
 
+    }
+
+    void Update()
+    {
+        if (isWin == true)
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+    }
+
+    // this is a getter for IsWin - this can be transfered to other scripts.
+    public bool GetIsWin()
+    {
+        return this.isWin;
+    }
+
+    public void SetIsWin(bool _win)
+    {
+        this.isWin = _win;
     }
 }
