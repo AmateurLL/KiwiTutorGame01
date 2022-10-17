@@ -68,6 +68,7 @@ public class CSS_Player : MonoBehaviour
             Debug.Log("u die");
         }
         ModCountdown();
+        DeathCheck();
     }
 
     // Runs Movement() repeatedly after a fixed period of time.
@@ -120,6 +121,15 @@ public class CSS_Player : MonoBehaviour
                 spdMod = 1.0f;
                 isAffected = false;
             }
+        }
+    }
+
+    private void DeathCheck()
+    {
+        if (hp <= 0)
+        {
+            CSS_GameManager.Instance.SetIsDead(true);
+            Object.Destroy(this);
         }
     }
 

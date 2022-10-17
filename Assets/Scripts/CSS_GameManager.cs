@@ -22,6 +22,7 @@ public class CSS_GameManager : MonoBehaviour
     [Space]
     [Header("Game Stats")]
     [SerializeField] private bool isWin = false;
+    [SerializeField] private bool isDead = false;
 
     private void Awake()
     {
@@ -41,6 +42,12 @@ public class CSS_GameManager : MonoBehaviour
         if (isWin == true)
         {
             SceneManager.LoadScene("MainMenu");
+            isWin = false;
+        }
+        else if (isDead == true)
+        {
+            SceneManager.LoadScene("MainMenu");
+            isDead = false;
         }
     }
 
@@ -53,5 +60,15 @@ public class CSS_GameManager : MonoBehaviour
     public void SetIsWin(bool _win)
     {
         this.isWin = _win;
+    }
+
+    public bool GetIsDead()
+    {
+        return this.isDead;
+    }
+
+    public void SetIsDead(bool _dead)
+    {
+        this.isDead = _dead;
     }
 }

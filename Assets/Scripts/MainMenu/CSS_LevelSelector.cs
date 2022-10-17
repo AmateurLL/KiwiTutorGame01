@@ -6,9 +6,19 @@ using UnityEngine.SceneManagement;
 public class CSS_LevelSelector : MonoBehaviour
 {
     public GameObject MainMenuRef;
+    private string[] Levels = { "Lvl_1", "Lvl_2" };
+
+    // The Level 1 text is hardcoded.
     public void Level1()
     {
-        SceneManager.LoadScene("Lvl_1");
+        SceneManager.LoadScene(Levels[0]);
+        Debug.Log("Entering Level 1");
+    }
+
+    public void Level2()
+    {
+        SceneManager.LoadScene(Levels[1]);
+        Debug.Log("Entering Level 2");
     }
 
     public void BackButton()

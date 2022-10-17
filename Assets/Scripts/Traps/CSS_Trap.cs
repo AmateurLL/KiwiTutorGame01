@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class CSS_Trap : MonoBehaviour
+public class CSS_Trap : MonoBehaviour
 {
     //Variables of the Trap object
     [Header("Deterioration")]
@@ -11,7 +11,8 @@ public abstract class CSS_Trap : MonoBehaviour
 
     [Header("Trap Stats")]
     [SerializeField] private int damage = 1;
-
+    [SerializeField] private float timeLock;
+    [SerializeField] private string trapName;
     // This function makes the trap dissapear after 10 seconds.
     public virtual void Deterioration()
     {
@@ -33,6 +34,14 @@ public abstract class CSS_Trap : MonoBehaviour
     // 
     //}
 
+    public void Print()
+    {
+        Debug.Log("Name: " + trapName + "\n");
+        Debug.Log("Lifetime: " + lifeTime + "\n");
+        Debug.Log("Damage: " + damage + "\n");
+        Debug.Log("TimeLock: " + timeLock + "\n");
+    }
+
     ////////////////////////////////////////////////////////////////////////////hi////////////////////////////////////////////////hix2///////////////////////////
 
     public void SetLifeTime(float _life)
@@ -50,6 +59,16 @@ public abstract class CSS_Trap : MonoBehaviour
         damage = _dmg;
     }
 
+    public void SetTimeLock(float _timelock)
+    {
+        timeLock = _timelock;
+    }
+
+    public void SetName(string _trapName)
+    {
+        trapName = _trapName;
+    }
+
     public float GetLifeTime()
     {
         return this.lifeTime;
@@ -63,5 +82,15 @@ public abstract class CSS_Trap : MonoBehaviour
     public int GetDamage()
     {
         return this.damage;
+    }
+
+    public float GetTimeLock()
+    {
+        return this.timeLock;
+    }
+
+    public string GetName()
+    {
+        return this.trapName;
     }
 }
