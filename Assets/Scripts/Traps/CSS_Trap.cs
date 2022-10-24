@@ -27,13 +27,15 @@ public class CSS_Trap : MonoBehaviour
         }
     }
 
-    //Overloading a function
-    //(Basically you can have parameters, but they aren't needed if you have one without)
-    //public void Deterioration(int _x, int _y)
-    //{
-    // 
-    //}
+    public void InitStats(int _dmg, float _life, float _lock, string _name)
+    {
+        this.SetDamage(_dmg);
+        this.SetLifeTime(_life);
+        this.SetTimeLock(_lock);
+        this.SetName(_name);
+    }
 
+    // Debug message Purpose
     public void Print()
     {
         Debug.Log("Name: " + trapName + "\n");
@@ -43,7 +45,6 @@ public class CSS_Trap : MonoBehaviour
     }
 
     ////////////////////////////////////////////////////////////////////////////hi////////////////////////////////////////////////hix2///////////////////////////
-
     public void SetLifeTime(float _life)
     {
         lifeTime = _life;

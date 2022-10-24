@@ -159,8 +159,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeTime: 10
   damage: 1
+  timeLock: 0
+  trapName: 
   trollCD: 0.1
-  _spinClown: {x: 0, y: 0, z: 0}
+  _spinClown: {x: 0, y: 0, z: 50}
 --- !u!1 &7339869475201151920
 GameObject:
   m_ObjectHideFlags: 0

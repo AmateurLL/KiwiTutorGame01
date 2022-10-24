@@ -1,0 +1,7 @@
+Name,Lifetime,Damage,TimeLock
+Block,3,0,0
+Bear Trap,3,-5,5
+Bomb,3,-5,15
+Clown Trap,7,-1,30
+Nuke ,5,-1000,60
+Spinning Box,10,0,60

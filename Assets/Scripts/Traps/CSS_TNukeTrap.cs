@@ -13,9 +13,10 @@ public class CSS_TNukeTrap : CSS_Trap
 
     void Awake()
     {
-        TimerOn = true;
-        //this.SetLifeTime(5.0f);
-        this.SetDamage(-1000);
+        this.InitStats(CSS_DataManager.Instance.trapData[4].GetDamage(),
+            CSS_DataManager.Instance.trapData[4].GetLifeTime(),
+            CSS_DataManager.Instance.trapData[4].GetTimeLock(),
+            CSS_DataManager.Instance.trapData[4].GetName());
     }
 
     void Update()

@@ -10,7 +10,10 @@ public class CSS_TBearTrap : CSS_Trap
     //bool isTimeUp;
     public void Init()
     {
-        this.SetDamage(-10);
+        this.InitStats(CSS_DataManager.Instance.trapData[1].GetDamage(),
+            CSS_DataManager.Instance.trapData[1].GetLifeTime(),
+            CSS_DataManager.Instance.trapData[1].GetTimeLock(),
+            CSS_DataManager.Instance.trapData[1].GetName());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
