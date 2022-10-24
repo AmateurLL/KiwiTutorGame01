@@ -15,7 +15,11 @@ public class CSS_TBombTrap : CSS_Trap
     {
         this.m_circle2D = this.GetComponent<CircleCollider2D>();
         this.isExplode = false;
-        this.SetLifeTime(3.0f);
+        //this.SetLifeTime(3.0f);
+        this.InitStats(CSS_DataManager.Instance.trapData[2].GetDamage(),
+                        CSS_DataManager.Instance.trapData[2].GetLifeTime(),
+                        CSS_DataManager.Instance.trapData[2].GetTimeLock(),
+                        CSS_DataManager.Instance.trapData[2].GetName());
     }
 
     private void Awake()

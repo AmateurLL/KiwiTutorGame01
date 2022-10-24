@@ -8,10 +8,20 @@ public class CSS_TTrollBoxTrap : CSS_Trap
     private float trollModifier = 1.0f;
     private bool doDMG;
     [SerializeField] private Vector3 _spinClown;
+
+    public void Init()
+    {
+        this.InitStats( CSS_DataManager.Instance.trapData[3].GetDamage(),
+                        CSS_DataManager.Instance.trapData[3].GetLifeTime(),
+                        CSS_DataManager.Instance.trapData[3].GetTimeLock(),
+                        CSS_DataManager.Instance.trapData[3].GetName());
+    }
+
     // Start is called before the first frame update
     void Awake()
     {
-        this.SetDamage(-1);
+        //this.SetDamage(-1);
+        this.Init();
         this.doDMG = true;
         this._spinClown = new Vector3(0, 0, 75);
     }

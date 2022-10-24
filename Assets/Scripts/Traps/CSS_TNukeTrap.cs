@@ -11,11 +11,20 @@ public class CSS_TNukeTrap : CSS_Trap
     public bool TimerOn = false;
     public TextMeshPro TimerTxt;
 
+    public void Init()
+    {
+        this.InitStats(CSS_DataManager.Instance.trapData[4].GetDamage(),
+                        CSS_DataManager.Instance.trapData[4].GetLifeTime(),
+                        CSS_DataManager.Instance.trapData[4].GetTimeLock(),
+                        CSS_DataManager.Instance.trapData[4].GetName());
+    }
+
     void Awake()
     {
         TimerOn = true;
         //this.SetLifeTime(5.0f);
-        this.SetDamage(-1000);
+        //this.SetDamage(-1000);
+        this.Init();
     }
 
     void Update()
