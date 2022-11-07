@@ -81,9 +81,9 @@ public class CSS_DataManager : MonoBehaviour
         }
 
         //Debug message
-        foreach (CSS_Trap Data in this.trapData)
-        {
-            Data.Print(); //Prints the information
-        }
+        //foreach (CSS_Trap Data in this.trapData)
+        //{
+        //    Data.Print(); //Prints the information
+        //}
     }
 }

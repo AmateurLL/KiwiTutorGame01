@@ -18,6 +18,7 @@ public class CSS_Player : MonoBehaviour
     public float runSpd;
     float horiMove;
     float jumpPower;
+    public float jumpMod;
     private bool isJumping = false;
     private bool isFacingRight = true;
     private bool isGrounded;
@@ -38,6 +39,7 @@ public class CSS_Player : MonoBehaviour
         this.runSpd = 7.0f;
         this.horiMove = 20.0f;
         this.jumpPower = 12.5f;
+        this.jumpMod = 1.0f;
         this.spdMod = 1.0f;
         this.hp = 100;
         this.playerObjTrans = this.transform;
@@ -99,9 +101,10 @@ public class CSS_Player : MonoBehaviour
         {
             // This code makes the player jump equal to the jumpPover (float).
             // It then makes it so the player can not jump again until they touch the ground.
-            this.movement.y = this.jumpPower * this.spdMod;
+            this.movement.y = (this.jumpPower * this.jumpMod) * this.spdMod;
             this.isJumping = false;
             m_GroundCheckCol.GetComponent<CSS_PlayerGroundCheck>().SetisGrounded(false);
+            this.jumpMod = 1.0f;
         }
 
         // This sets the player's rigidbody velocity to the player's calculated movement (float).
@@ -128,6 +131,7 @@ public class CSS_Player : MonoBehaviour
     {
         if (hp <= 0)
         {
+            Debug.Log("u is die");
             CSS_GameManager.Instance.SetIsDead(true);
             Object.Destroy(this);
         }
@@ -196,5 +200,35 @@ public class CSS_Player : MonoBehaviour
     public void SetPlayerObjTrans(Vector3 _trans)
     {
         playerObjTrans.position = _trans;
+    }
+
+    public bool GetJump()
+    {
+        return this.isJumping;
+    }
+
+    public void SetJump(bool _jump)
+    {
+        isJumping = _jump;
+    }
+
+    public float GetJumpPower()
+    {
+        return this.jumpPower;
+    }
+
+    public void SetJumpPower(float _jumpPower)
+    {
+        jumpPower = _jumpPower;
+    }
+
+    public float GetJumpMod()
+    {
+        return this.jumpMod;
+    }
+
+    public void SetJumpMod(float _jumpMod)
+    {
+        jumpMod = _jumpMod;
     }
 }

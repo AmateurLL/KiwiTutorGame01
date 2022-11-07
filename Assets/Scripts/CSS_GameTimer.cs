@@ -26,17 +26,19 @@ public class CSS_GameTimer : MonoBehaviour
         {
             // 60 x 5 = 300, 300 seconds is 5 mins
             // Calculates when the game should end
-            if (TimeLeft <= 300.0f)
-            {
-                TimeLeft += Time.deltaTime;
-                updateTimer(TimeLeft);
-            }
-            else
-            {
-                TimeLeft = 0;
-                TimerOn = false;
-                Object.Destroy(this.gameObject);
-            }
+            //if (TimeLeft <= 108000.0f)
+            //{
+            //    TimeLeft += Time.deltaTime;
+            //    updateTimer(TimeLeft);
+            //}
+            //else
+            //{
+            //    TimeLeft = 0;
+            //    TimerOn = false;
+            //    Object.Destroy(this.gameObject);
+            //}
+            TimeLeft += Time.deltaTime;
+            updateTimer(TimeLeft);
         }
     }
 

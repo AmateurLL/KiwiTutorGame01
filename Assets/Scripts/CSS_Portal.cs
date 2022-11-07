@@ -29,6 +29,8 @@ public class CSS_Portal : MonoBehaviour
         {
             collision.gameObject.GetComponent<CSS_Player>().SetPlayerObjTrans(portal.position);
             //gameObject.GetComponent<CSS_Camera>().SetCameraObjTrans(transform.position);
+
+            //Unneeded for lvl 2, the camera is different
             CSS_GameManager.Instance.cameraRef.GetComponent<CSS_Camera>().MoveCamera();
         }
     }
