@@ -16,9 +16,9 @@ public class CSS_GameManager : MonoBehaviour
     [SerializeField] public GameObject TNukeTrapRef;
     [SerializeField] public GameObject TTrollBoxTrapRef;
     [SerializeField] public GameObject spinningBoxRef;
-    [SerializeField] public GameObject cameraPosRef;
     [SerializeField] public GameObject cameraRef;
-
+    [SerializeField] public GameObject cameraPosRef;
+    [SerializeField] public GameObject speedBoostRef;
     [Space]
     [Header("Game Stats")]
     [SerializeField] private bool isWin = false;

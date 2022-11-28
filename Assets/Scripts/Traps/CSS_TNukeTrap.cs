@@ -8,7 +8,6 @@ using TMPro;
 public class CSS_TNukeTrap : CSS_Trap
 {
     public float TimeLeft;
-    public bool TimerOn = false;
     public TextMeshPro TimerTxt;
 
     void Awake()
@@ -17,6 +16,8 @@ public class CSS_TNukeTrap : CSS_Trap
             CSS_DataManager.Instance.trapData[4].GetLifeTime(),
             CSS_DataManager.Instance.trapData[4].GetTimeLock(),
             CSS_DataManager.Instance.trapData[4].GetName());
+        TimerTxt = this.gameObject.transform.GetChild(0).GetComponent<TextMeshPro>();
+        TimeLeft = this.GetLifeTime();
     }
 
     void Update()
@@ -38,19 +39,15 @@ public class CSS_TNukeTrap : CSS_Trap
 
     public void NukeTimer()
     {
-        if (TimerOn)
+        if (TimeLeft > 0)
         {
-            if (TimeLeft > 0)
-            {
-                TimeLeft -= Time.deltaTime;
-                updateTimer(TimeLeft);
-            }
-            else
-            {
-                TimeLeft = 0;
-                TimerOn = false;
-                UnityEngine.Object.Destroy(this.gameObject);
-            }
+            TimeLeft -= Time.deltaTime;
+            updateTimer(TimeLeft);
+        }
+        else
+        {
+            TimeLeft = 0;
+            UnityEngine.Object.Destroy(this.gameObject);
         }
     }
     void updateTimer(float currentTime)

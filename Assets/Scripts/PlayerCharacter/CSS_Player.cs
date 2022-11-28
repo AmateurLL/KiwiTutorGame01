@@ -10,6 +10,7 @@ public class CSS_Player : MonoBehaviour
     [SerializeField] private Rigidbody2D m_rig2D;
     [SerializeField] private Transform m_GroundCheckCol;
     [SerializeField] private CSS_EFFKnockback m_KBInstance;
+    [SerializeField] private CSS_EFFSpeedBoost m_SpeedInstance;
     private Transform playerObjTrans;
 
     //List of variables and controls (of the Player)
@@ -35,6 +36,7 @@ public class CSS_Player : MonoBehaviour
         this.m_rig2D = this.GetComponent<Rigidbody2D>();
         this.m_GroundCheckCol = this.transform.GetChild(1);
         this.m_KBInstance = this.GetComponent<CSS_EFFKnockback>();
+        this.m_SpeedInstance = this.GetComponent<CSS_EFFSpeedBoost>();
         this.movement = new Vector2(0, 0);
         this.runSpd = 7.0f;
         this.horiMove = 20.0f;
@@ -190,6 +192,11 @@ public class CSS_Player : MonoBehaviour
     public CSS_EFFKnockback GetIsKnockedBackInstance()
     {
         return this.m_KBInstance;
+    }
+
+    public CSS_EFFSpeedBoost GetIsSpeedBoostInstance()
+    {
+        return this.m_SpeedInstance;
     }
 
     public Transform GetPlayerObjTrans()

@@ -115,7 +115,9 @@ MonoBehaviour:
   m_rig2D: {fileID: 0}
   m_GroundCheckCol: {fileID: 0}
   m_KBInstance: {fileID: 0}
+  m_SpeedInstance: {fileID: 0}
   runSpd: 0
+  jumpMod: 0
   spdMod: 0
   hp: 0
   isAffected: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7263047148337197073}
   - component: {fileID: 7263047148337197078}
   m_Layer: 0
-  m_Name: Spin thing
+  m_Name: SpinningTrap
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
