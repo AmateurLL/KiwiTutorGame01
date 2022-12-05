@@ -6,13 +6,14 @@ using TMPro;
 
 public class CSS_GameTimer : MonoBehaviour
 {
-    public TMP_Text TimerText;
-    public bool TimerOn;
-    public float TimeLeft;
+    public TMP_Text timerText;
+    public bool timerOn;
+    public float timeLeft;
     void Init()
     {
-        TimerOn = true;
-        TimeLeft = 0.0f;
+        timerOn = true;
+        timeLeft = 0.0f;
+        timerText = this.GetComponent<TMP_Text>();
     }
 
     public void Start()
@@ -22,7 +23,12 @@ public class CSS_GameTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (TimerOn)
+        if (CSS_GameManager.Instance.GetIsGameOver())
+        {
+            timerOn = false;
+        }
+
+        if (timerOn)
         {
             // 60 x 5 = 300, 300 seconds is 5 mins
             // Calculates when the game should end
@@ -37,8 +43,8 @@ public class CSS_GameTimer : MonoBehaviour
             //    TimerOn = false;
             //    Object.Destroy(this.gameObject);
             //}
-            TimeLeft += Time.deltaTime;
-            updateTimer(TimeLeft);
+            timeLeft += Time.deltaTime;
+            updateTimer(timeLeft);
         }
     }
 
@@ -47,6 +53,7 @@ public class CSS_GameTimer : MonoBehaviour
         float minutes = Mathf.FloorToInt(currentTime / 60);
         float seconds = Mathf.FloorToInt(currentTime % 60);
 
-        this.GetComponent<TMP_Text>().text = string.Format("{0:0}:{1:00}", minutes, seconds);
+        timerText.GetComponent<TMP_Text>().text = string.Format("{0:0}:{1:00}", minutes, seconds);
+        CSS_GameManager.Instance.SetGameTimer(timerText.GetComponent<TMP_Text>().text);
     }
 }

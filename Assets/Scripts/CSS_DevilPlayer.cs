@@ -15,8 +15,11 @@ public class CSS_DevilPlayer : MonoBehaviour
     }
     void Update()
     {
-        spawnTimer -= (TtimeModifier * Time.deltaTime);
-        MouseDetection();
+        if (!CSS_GameManager.Instance.GetIsGameOver())
+        {
+            spawnTimer -= (TtimeModifier * Time.deltaTime);
+            MouseDetection();
+        }
     }
     public bool IsMouseOverUI()
     {
@@ -26,7 +29,7 @@ public class CSS_DevilPlayer : MonoBehaviour
     private bool IsTouchingPlayer()
     {
         Vector2 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        return CSS_GameManager.Instance.playerRef.transform.GetChild(3).GetComponent<CircleCollider2D>().OverlapPoint(point);
+        return CSS_GameManager.Instance.playerRef.transform.GetChild(2).GetComponent<CircleCollider2D>().OverlapPoint(point);
     }
 
     public void MouseDetection()

@@ -9,6 +9,12 @@ public class CSS_LevelSelector : MonoBehaviour
     private string[] Levels = { "Lvl_1", "Lvl_2" };
 
     // The Level 1 text is hardcoded.
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+        Debug.Log("Entering Main Menu");
+    }
     public void Level1()
     {
         SceneManager.LoadScene(Levels[0]);

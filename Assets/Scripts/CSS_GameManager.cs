@@ -19,10 +19,14 @@ public class CSS_GameManager : MonoBehaviour
     [SerializeField] public GameObject cameraRef;
     [SerializeField] public GameObject cameraPosRef;
     [SerializeField] public GameObject speedBoostRef;
+    [SerializeField] public GameObject GameUIRef;
+    [SerializeField] public GameObject GameOverUIRef;
     [Space]
     [Header("Game Stats")]
     [SerializeField] private bool isWin = false;
     [SerializeField] private bool isDead = false;
+    [SerializeField] private bool isGameOver = false;
+    [SerializeField] private string gameTimer;
 
     private void Awake()
     {
@@ -41,12 +45,18 @@ public class CSS_GameManager : MonoBehaviour
     {
         if (isWin == true)
         {
-            SceneManager.LoadScene("MainMenu");
+            GameUIRef.SetActive(false);
+            GameOverUIRef.GetComponent<CSS_GameOverUI>().PlayerWinText();
+            GameOverUIRef.SetActive(true);
+            isGameOver = true;
             isWin = false;
         }
         else if (isDead == true)
         {
-            SceneManager.LoadScene("MainMenu");
+            //SceneManager.LoadScene("MainMenu");
+            GameUIRef.SetActive(false);
+            GameOverUIRef.SetActive(true);
+            isGameOver = true;
             isDead = false;
         }
     }
@@ -70,5 +80,26 @@ public class CSS_GameManager : MonoBehaviour
     public void SetIsDead(bool _dead)
     {
         this.isDead = _dead;
+    }
+
+    public bool GetIsGameOver()
+    {
+        return this.isGameOver;
+    }
+
+    public void SetIsGameOver(bool _game)
+    {
+        this.isGameOver = _game;
+    }
+
+    public string GetGameTimer()
+    {
+        return this.gameTimer;
+    }
+
+    public void SetGameTimer(string _time)
+    {
+        this.gameTimer = _time;
+        Debug.Log("The time is " + this.gameTimer);
     }
 }

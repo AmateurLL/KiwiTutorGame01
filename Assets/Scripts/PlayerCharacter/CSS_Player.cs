@@ -59,21 +59,17 @@ public class CSS_Player : MonoBehaviour
         // Assigns horiMove (float) to the value given by moving on the horizontal axis
         // (-1 --> 1 and vice versa), multiplied by the variable runSpd (float).
         horiMove = Input.GetAxisRaw("Horizontal") * this.runSpd * this.spdMod;
-
+        PlayerFacing();
         // If the space key is pressed, and the circle collider from the child object PlayerGroundCheck by accessing the script.
         // Is touching an object with the tag "Grounded", you are able to jump.
         if (Input.GetKeyDown("space") && m_GroundCheckCol.GetComponent<CSS_PlayerGroundCheck>().GetisGrounded())
         {
             this.isJumping = true;
         }
-
-        if (hp <= 0)
-        {
-            Debug.Log("u die");
-        }
         ModCountdown();
         DeathCheck();
     }
+
 
     // Runs Movement() repeatedly after a fixed period of time.
     private void FixedUpdate()
@@ -81,6 +77,27 @@ public class CSS_Player : MonoBehaviour
         this.Movement();
     }
 
+    public void PlayerFacing()
+    {
+        float x = this.transform.localScale.x;
+        float y = this.transform.localScale.y;
+        float z = this.transform.localScale.z;
+        if (Input.GetAxisRaw("Horizontal") == 1 && !isFacingRight)
+        {
+            isFacingRight = true;
+            if (this.transform.localScale.x <= -1)
+            {
+                x *= -1;
+            }
+            this.transform.localScale = new Vector3(x, y, z);
+        }
+        else if (Input.GetAxisRaw("Horizontal") == -1 && isFacingRight)
+        {
+            isFacingRight = false;
+            x *= -1;
+            this.transform.localScale = new Vector3(x, y, z);
+        }
+    }
     // This function controlls the player movement.
     public void Movement()
     {
@@ -131,9 +148,10 @@ public class CSS_Player : MonoBehaviour
 
     private void DeathCheck()
     {
-        if (hp <= 0)
+        // Makes it so if the player reaches the goal, they can't die (avoids potenial bugs)
+        if (!CSS_GameManager.Instance.GetIsGameOver() && hp <= 0)
         {
-            Debug.Log("u is die");
+            //Debug.Log("u is die");
             CSS_GameManager.Instance.SetIsDead(true);
             Object.Destroy(this);
         }
