@@ -46,8 +46,8 @@ public class CSS_GameManager : MonoBehaviour
         if (isWin == true)
         {
             GameUIRef.SetActive(false);
-            GameOverUIRef.GetComponent<CSS_GameOverUI>().PlayerWinText();
             GameOverUIRef.SetActive(true);
+            GameOverUIRef.GetComponent<CSS_GameOverUI>().PlayerWinText();
             isGameOver = true;
             isWin = false;
         }
@@ -100,6 +100,6 @@ public class CSS_GameManager : MonoBehaviour
     public void SetGameTimer(string _time)
     {
         this.gameTimer = _time;
-        Debug.Log("The time is " + this.gameTimer);
+        //Debug.Log("The time is " + this.gameTimer);
     }
 }

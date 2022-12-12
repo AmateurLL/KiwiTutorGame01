@@ -6,7 +6,8 @@ using System.Collections.Generic;
 public class CSS_DevilPlayer : MonoBehaviour
 {
     [SerializeField] Vector2 mousePos2D;
-    [SerializeField] private float spawnTimer = 3.0f;
+    [SerializeField] private float spawnTimer;
+    [SerializeField] private float spawnCooldown = 6.5f;
     private float TtimeModifier = 1.0f;
 
     private void Awake()
@@ -60,7 +61,7 @@ public class CSS_DevilPlayer : MonoBehaviour
             if (CSS_GameManager.Instance.selectedTrapRef != null)
             {
                 Instantiate(CSS_GameManager.Instance.selectedTrapRef, new Vector3(mousePos2D.x, mousePos2D.y, 0), Quaternion.identity);
-                spawnTimer = 3.0f;
+                spawnTimer = spawnCooldown;
             }
             else
             {

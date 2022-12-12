@@ -56,15 +56,18 @@ public class CSS_Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Assigns horiMove (float) to the value given by moving on the horizontal axis
-        // (-1 --> 1 and vice versa), multiplied by the variable runSpd (float).
-        horiMove = Input.GetAxisRaw("Horizontal") * this.runSpd * this.spdMod;
-        PlayerFacing();
-        // If the space key is pressed, and the circle collider from the child object PlayerGroundCheck by accessing the script.
-        // Is touching an object with the tag "Grounded", you are able to jump.
-        if (Input.GetKeyDown("space") && m_GroundCheckCol.GetComponent<CSS_PlayerGroundCheck>().GetisGrounded())
+        if (!CSS_GameManager.Instance.GetIsGameOver())
         {
-            this.isJumping = true;
+            // Assigns horiMove (float) to the value given by moving on the horizontal axis
+            // (-1 --> 1 and vice versa), multiplied by the variable runSpd (float).
+            horiMove = Input.GetAxisRaw("Horizontal") * this.runSpd * this.spdMod;
+            PlayerFacing();
+            // If the space key is pressed, and the circle collider from the child object PlayerGroundCheck by accessing the script.
+            // Is touching an object with the tag "Grounded", you are able to jump.
+            if (Input.GetKeyDown("space") && m_GroundCheckCol.GetComponent<CSS_PlayerGroundCheck>().GetisGrounded())
+            {
+                this.isJumping = true;
+            }
         }
         ModCountdown();
         DeathCheck();
@@ -74,7 +77,10 @@ public class CSS_Player : MonoBehaviour
     // Runs Movement() repeatedly after a fixed period of time.
     private void FixedUpdate()
     {
-        this.Movement();
+        if (!CSS_GameManager.Instance.GetIsGameOver())
+        {
+            this.Movement();
+        }
     }
 
     public void PlayerFacing()
@@ -153,7 +159,7 @@ public class CSS_Player : MonoBehaviour
         {
             //Debug.Log("u is die");
             CSS_GameManager.Instance.SetIsDead(true);
-            Object.Destroy(this);
+            //Object.Destroy(this);
         }
     }
 

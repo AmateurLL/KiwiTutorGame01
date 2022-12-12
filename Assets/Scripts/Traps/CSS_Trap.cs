@@ -22,7 +22,7 @@ public class CSS_Trap : MonoBehaviour
         // if the lifetime is less or equal to 0.0, then the object dissapears.
         if (lifeTime <= 0.0f)
         {
-            Debug.Log("adios");
+            //Debug.Log("adios");
             Object.Destroy(this.gameObject);
         }
     }

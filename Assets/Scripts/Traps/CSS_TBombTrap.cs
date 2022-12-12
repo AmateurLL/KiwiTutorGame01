@@ -72,50 +72,9 @@ public class CSS_TBombTrap : CSS_Trap
                 //Debug.Log(direction);
                 //isExplode = false;
                 isPlayerAffected = true;
+                CSS_GameManager.Instance.playerRef.transform.GetComponent<CSS_Player>().ModifyHP(this.GetDamage());
                 Object.Destroy(this.gameObject);
             }
         }
     }
-
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.tag == "Player")
-    //    {
-    //        isPlayerAffected = true;
-    //    }
-    //}
-
-    //private void OnCollisionExit2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.tag == "Player")
-    //    {
-    //        isPlayerAffected = false;
-    //    }
-    //}
-
-    //public IEnumerator Knockback(float knockbackDuartion, float knockbackPower, Transform obj)
-    //{
-    //    float timer = 0;
-
-    //    while (knockbackDuartion > timer)
-    //    {
-    //        timer += Time.deltaTime;
-    //        Vector2 direction = (obj.transform.position - this.transform.position).normalized;
-    //        CSS_GameManager.Instance.playerRef.GetComponent<CSS_Player>().GetRigid().AddForce(-direction * knockbackPower);
-    //    }
-
-    //    yield return 0;
-    //}
-
-    //private void OnCollisionEnter2D(Collision2D other)
-    //{
-    //    Debug.Log("collision");
-    //    if (other.gameObject.tag == "Player")
-    //    {
-    //        Debug.Log("collision (working)");
-    //        Vector2 direction = (CSS_GameManager.Instance.playerRef.GetComponent<CSS_Player>().transform.position - this.transform.position).normalized;
-    //        CSS_GameManager.Instance.playerRef.GetComponent<CSS_Player>().GetRigid().AddForce(-direction * knockbackPower);
-    //        //StartCoroutine(Knockback(knockbackDuartion, knockbackPower, this.transform));
-    //    }
-    //}
 }
