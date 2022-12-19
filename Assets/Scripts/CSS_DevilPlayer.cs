@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class CSS_DevilPlayer : MonoBehaviour
 {
+    //CHEF PLAYER
     [SerializeField] Vector2 mousePos2D;
     [SerializeField] private float spawnTimer;
     [SerializeField] private float spawnCooldown = 6.5f;

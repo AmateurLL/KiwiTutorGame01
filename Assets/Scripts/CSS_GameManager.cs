@@ -7,21 +7,26 @@ public class CSS_GameManager : MonoBehaviour
 {
     //Singleton
     public static CSS_GameManager Instance { get; private set; }
-    [Header("References")]
+    [Header("Main References")]
     [SerializeField] public GameObject playerRef;
     [SerializeField] public GameObject selectedTrapRef;
-    [SerializeField] public GameObject TBlockTrapRef;
-    [SerializeField] public GameObject TBearTrapRef;
-    [SerializeField] public GameObject TBombTrapRef;
-    [SerializeField] public GameObject TNukeTrapRef;
-    [SerializeField] public GameObject TTrollBoxTrapRef;
-    [SerializeField] public GameObject spinningBoxRef;
     [SerializeField] public GameObject cameraRef;
     [SerializeField] public GameObject cameraPosRef;
     [SerializeField] public GameObject speedBoostRef;
     [SerializeField] public GameObject GameUIRef;
     [SerializeField] public GameObject GameOverUIRef;
     [Space]
+
+    [Header("Trap References")] 
+    [SerializeField] public GameObject TBlockTrapRef;
+    [SerializeField] public GameObject TBearTrapRef;
+    [SerializeField] public GameObject TBombTrapRef;
+    [SerializeField] public GameObject TNukeTrapRef;
+    [SerializeField] public GameObject TTrollBoxTrapRef;
+    [SerializeField] public GameObject spinningBoxRef;
+    [SerializeField] public GameObject emberRef;
+    [Space]
+
     [Header("Game Stats")]
     [SerializeField] private bool isWin = false;
     [SerializeField] private bool isDead = false;
