@@ -24,6 +24,7 @@ public class CSS_GameManager : MonoBehaviour
     [SerializeField] public GameObject TNukeTrapRef;
     [SerializeField] public GameObject TTrollBoxTrapRef;
     [SerializeField] public GameObject spinningBoxRef;
+    [SerializeField] public GameObject fryerBombRef;
     [SerializeField] public GameObject emberRef;
     [Space]
 
@@ -32,6 +33,8 @@ public class CSS_GameManager : MonoBehaviour
     [SerializeField] private bool isDead = false;
     [SerializeField] private bool isGameOver = false;
     [SerializeField] private string gameTimer;
+    [SerializeField] public float[] timeLockList;
+
 
     private void Awake()
     {
@@ -43,7 +46,6 @@ public class CSS_GameManager : MonoBehaviour
         {
             Destroy(this);
         }
-
     }
 
     void Update()
@@ -64,6 +66,12 @@ public class CSS_GameManager : MonoBehaviour
             isGameOver = true;
             isDead = false;
         }
+        GetTrapTimeLock();
+    }
+
+    public void GetTrapTimeLock()
+    {
+        Debug.Log(CSS_DataManager.Instance.GetTrapData()[4].GetTimeLock());
     }
 
     // this is a getter for IsWin - this can be transfered to other scripts.

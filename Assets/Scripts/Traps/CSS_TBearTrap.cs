@@ -13,7 +13,8 @@ public class CSS_TBearTrap : CSS_Trap
         this.InitStats(CSS_DataManager.Instance.trapData[1].GetDamage(),
             CSS_DataManager.Instance.trapData[1].GetLifeTime(),
             CSS_DataManager.Instance.trapData[1].GetTimeLock(),
-            CSS_DataManager.Instance.trapData[1].GetName());
+            CSS_DataManager.Instance.trapData[1].GetName(),
+            CSS_DataManager.Instance.trapData[1].GetTier());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

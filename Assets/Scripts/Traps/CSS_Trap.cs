@@ -13,6 +13,7 @@ public class CSS_Trap : MonoBehaviour
     [SerializeField] private int damage = 1;
     [SerializeField] private float timeLock;
     [SerializeField] private string trapName;
+    [SerializeField] private int tier;
     // This function makes the trap dissapear after 10 seconds.
     public virtual void Deterioration()
     {
@@ -27,21 +28,23 @@ public class CSS_Trap : MonoBehaviour
         }
     }
 
-    public void InitStats(int _dmg, float _life, float _lock, string _name)
+    public void InitStats(int _dmg, float _life, float _lock, string _name, int _tier)
     {
         this.SetDamage(_dmg);
         this.SetLifeTime(_life);
         this.SetTimeLock(_lock);
         this.SetName(_name);
+        this.SetTier(_tier);
     }
 
     // Debug message Purpose
     public void Print()
     {
-        Debug.Log("Name: " + trapName + "\n");
-        Debug.Log("Lifetime: " + lifeTime + "\n");
-        Debug.Log("Damage: " + damage + "\n");
-        Debug.Log("TimeLock: " + timeLock + "\n");
+        Debug.Log("Name: " + trapName + " | " +
+            "Lifetime: " + lifeTime + " | " +
+            "Damage: " + damage + " | " +
+            "Timelock: " + timeLock + " | " +
+            "Tier: " + tier);
     }
 
     ////////////////////////////////////////////////////////////////////////////hi////////////////////////////////////////////////hix2///////////////////////////
@@ -70,6 +73,11 @@ public class CSS_Trap : MonoBehaviour
         trapName = _trapName;
     }
 
+    public void SetTier(int _tier)
+    {
+        tier = _tier;
+    }
+
     public float GetLifeTime()
     {
         return this.lifeTime;
@@ -93,5 +101,10 @@ public class CSS_Trap : MonoBehaviour
     public string GetName()
     {
         return this.trapName;
+    }
+
+    public int GetTier()
+    {
+        return this.tier;
     }
 }

@@ -1,8 +1,8 @@
-Name,Lifetime,Damage,TimeLock
-Block,4,0,0
-Bear Trap,7.5,5,0
-Bomb,3,10,0
-Clown Trap,7,1,25
-Nuke ,5,1000,80
-Spinning Box,10,0,50
-Fryer Bomb,6,20,30
+Name,Lifetime,Damage,TimeLock,Tier
+Block,4,0,0,1
+Bear Trap,7.5,5,0,1
+Bomb,3,10,0,1
+Clown Trap,7,1,25,2
+Nuke ,5,1000,80,3
+Spinning Box,10,0,50,2
+Fryer Bomb,6,20,30,2

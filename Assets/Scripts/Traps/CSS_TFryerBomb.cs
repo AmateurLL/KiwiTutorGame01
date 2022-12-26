@@ -13,7 +13,8 @@ public class CSS_TFryerBomb : CSS_Trap
         this.InitStats(CSS_DataManager.Instance.trapData[6].GetDamage(),
             CSS_DataManager.Instance.trapData[6].GetLifeTime(),
             CSS_DataManager.Instance.trapData[6].GetTimeLock(),
-            CSS_DataManager.Instance.trapData[6].GetName());
+            CSS_DataManager.Instance.trapData[6].GetName(),
+            CSS_DataManager.Instance.trapData[6].GetTier());
         this.explosionTime = this.GetLifeTime() / 2;
         this.isFirstPhase = true;
         this.emberAmount = 8;

@@ -17,7 +17,8 @@ public class CSS_TBombTrap : CSS_Trap
         this.InitStats(CSS_DataManager.Instance.trapData[2].GetDamage(),
             CSS_DataManager.Instance.trapData[2].GetLifeTime(),
             CSS_DataManager.Instance.trapData[2].GetTimeLock(),
-            CSS_DataManager.Instance.trapData[2].GetName());
+            CSS_DataManager.Instance.trapData[2].GetName(),
+            CSS_DataManager.Instance.trapData[2].GetTier());
         isPlayerAffected = false;
     }
 

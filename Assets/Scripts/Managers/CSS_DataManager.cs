@@ -15,6 +15,7 @@ public class CSS_DataManager : MonoBehaviour
     3 = clown trap
     4 = nuke trap
     5 = spinning box trap
+    6 = fire bomb
     */
     [Header("Data")]
     [SerializeField] public List<CSS_Trap> trapData = new List<CSS_Trap>();
@@ -71,6 +72,11 @@ public class CSS_DataManager : MonoBehaviour
                                 this.trapData[count3].SetTimeLock(float.Parse(data));
                                 break;
                             }
+                        case 4:
+                            {
+                                this.trapData[count3].SetTier(int.Parse(data));
+                                break;
+                            }
                     }
                     count2++;
                 }
@@ -81,9 +87,15 @@ public class CSS_DataManager : MonoBehaviour
         }
 
         //Debug message
-        //foreach (CSS_Trap Data in this.trapData)
-        //{
-        //    Data.Print(); //Prints the information
-        //}
+        foreach (CSS_Trap Data in this.trapData)
+        {
+            Data.Print(); //Prints the information
+        }
     }
+
+    public List<CSS_Trap> GetTrapData()
+    {
+        return trapData;
+    }
+
 }

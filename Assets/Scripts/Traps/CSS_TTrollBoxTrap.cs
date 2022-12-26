@@ -14,7 +14,8 @@ public class CSS_TTrollBoxTrap : CSS_Trap
         this.InitStats(CSS_DataManager.Instance.trapData[3].GetDamage(),
             CSS_DataManager.Instance.trapData[3].GetLifeTime(),
             CSS_DataManager.Instance.trapData[3].GetTimeLock(),
-            CSS_DataManager.Instance.trapData[3].GetName());
+            CSS_DataManager.Instance.trapData[3].GetName(),
+            CSS_DataManager.Instance.trapData[3].GetTier());
     }
 
     // Update is called once per frame
