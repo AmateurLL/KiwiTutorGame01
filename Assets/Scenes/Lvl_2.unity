@@ -710,6 +710,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8670403901102158256, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_Name
+      value: Button03
+      objectReference: {fileID: 0}
     - target: {fileID: 8670403901102158257, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -734,6 +738,22 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8670403901102158258, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_Colors.m_FadeDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670403901117746084, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 420
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670403901117746087, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: DebugButtons
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670403901170952744, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_Name
+      value: Button02
+      objectReference: {fileID: 0}
     - target: {fileID: 8670403901170952745, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -758,6 +778,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8670403901170952746, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_Colors.m_FadeDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670403901242641057, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_Name
+      value: Button05
+      objectReference: {fileID: 0}
     - target: {fileID: 8670403901242641058, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -782,6 +810,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8670403901242641059, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_Colors.m_FadeDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670403901242641059, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetFryer
+      objectReference: {fileID: 0}
     - target: {fileID: 8670403901319449860, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -805,10 +841,18 @@ PrefabInstance:
     - target: {fileID: 8670403901319449860, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670403901319449861, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_Colors.m_FadeDuration
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8670403901547189543, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_text
-      value: Fryer Bomb
+      value: Useful Spinning Box
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670403901762648723, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_Name
+      value: Button07
       objectReference: {fileID: 0}
     - target: {fileID: 8670403901762648724, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_AnchorMax.y
@@ -833,6 +877,10 @@ PrefabInstance:
     - target: {fileID: 8670403901762648724, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670403901762648725, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_Colors.m_FadeDuration
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8670403901762648725, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -852,7 +900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8670403901762648725, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetSpin
+      value: SetNuke
       objectReference: {fileID: 0}
     - target: {fileID: 8670403901762648725, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -861,6 +909,10 @@ PrefabInstance:
     - target: {fileID: 8670403901762648725, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670403901881396901, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_Name
+      value: Button04
       objectReference: {fileID: 0}
     - target: {fileID: 8670403901881396902, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_AnchorMax.y
@@ -885,6 +937,10 @@ PrefabInstance:
     - target: {fileID: 8670403901881396902, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670403901881396903, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_Colors.m_FadeDuration
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8670403902122425475, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_Name
@@ -942,6 +998,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8670403902255403499, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_Name
+      value: Button10
+      objectReference: {fileID: 0}
     - target: {fileID: 8670403902255403500, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -966,9 +1026,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8670403902255403501, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_Colors.m_FadeDuration
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8670403902348925401, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.000030517578
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670403902381867140, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_Name
+      value: Button08
       objectReference: {fileID: 0}
     - target: {fileID: 8670403902381867140, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_IsActive
@@ -998,6 +1066,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8670403902381867142, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_Colors.m_FadeDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670403902492096044, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_Name
+      value: Button09
+      objectReference: {fileID: 0}
     - target: {fileID: 8670403902492096045, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1021,10 +1097,18 @@ PrefabInstance:
     - target: {fileID: 8670403902492096045, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670403902492096046, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_Colors.m_FadeDuration
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8670403902633212633, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_text
-      value: Useful Spinning Box
+      value: "Not a Nuke\u2122"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670403902735081479, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_Name
+      value: Button11
       objectReference: {fileID: 0}
     - target: {fileID: 8670403902735081480, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1049,6 +1133,14 @@ PrefabInstance:
     - target: {fileID: 8670403902735081480, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670403902735081481, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_Colors.m_FadeDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670403902882929872, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_Name
+      value: Button06
       objectReference: {fileID: 0}
     - target: {fileID: 8670403902882929873, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1075,8 +1167,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8670403902882929874, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_Colors.m_FadeDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670403902882929874, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetFryer
+      value: SetSpin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670403902895643354, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_Name
+      value: Button12
       objectReference: {fileID: 0}
     - target: {fileID: 8670403902895643355, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1101,6 +1201,14 @@ PrefabInstance:
     - target: {fileID: 8670403902895643355, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670403902895643356, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_Colors.m_FadeDuration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670403903056040649, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_text
+      value: Fryer Bomb
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
@@ -4030,6 +4138,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d48f036d2abd6247ac8718411697d8c, type: 3}
+--- !u!1 &720886484 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3832017205610535696, guid: e0c7896ea4301a04f891ed615aaca8be, type: 3}
+  m_PrefabInstance: {fileID: 1329404454}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &720886488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720886484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad2c5f0d1e13d72468e7a9a6413bf02a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeLockList: []
 --- !u!1001 &722398729
 PrefabInstance:
   m_ObjectHideFlags: 0

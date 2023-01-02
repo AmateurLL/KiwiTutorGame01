@@ -36,7 +36,7 @@ public class CSS_TTrollBoxTrap : CSS_Trap
     {
         if (collision.gameObject.tag == "Player" && doDMG == true)
         {
-            CSS_GameManager.Instance.playerRef.transform.GetComponent<CSS_Player>().ModifyHP(this.GetDamage());
+            CSS_GameManager.Instance.playerRef.transform.GetComponent<CSS_Player>().ModifyHP(-this.GetDamage());
             doDMG = false;
         }
     }

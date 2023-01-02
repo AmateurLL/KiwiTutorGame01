@@ -17,7 +17,7 @@ public class CSS_GameManager : MonoBehaviour
     [SerializeField] public GameObject GameOverUIRef;
     [Space]
 
-    [Header("Trap References")] 
+    [Header("Trap References")]
     [SerializeField] public GameObject TBlockTrapRef;
     [SerializeField] public GameObject TBearTrapRef;
     [SerializeField] public GameObject TBombTrapRef;
@@ -33,7 +33,8 @@ public class CSS_GameManager : MonoBehaviour
     [SerializeField] private bool isDead = false;
     [SerializeField] private bool isGameOver = false;
     [SerializeField] private string gameTimer;
-    [SerializeField] public float[] timeLockList;
+    [SerializeField] private float gameTimeSec;
+    [SerializeField] private float gameTimeMin;
 
 
     private void Awake()
@@ -66,12 +67,6 @@ public class CSS_GameManager : MonoBehaviour
             isGameOver = true;
             isDead = false;
         }
-        GetTrapTimeLock();
-    }
-
-    public void GetTrapTimeLock()
-    {
-        Debug.Log(CSS_DataManager.Instance.GetTrapData()[4].GetTimeLock());
     }
 
     // this is a getter for IsWin - this can be transfered to other scripts.
@@ -113,6 +108,28 @@ public class CSS_GameManager : MonoBehaviour
     public void SetGameTimer(string _time)
     {
         this.gameTimer = _time;
+        //Debug.Log("The time is " + this.gameTimer);
+    }
+
+    public float GetGameTimeSec()
+    {
+        return this.gameTimeSec;
+    }
+
+    public void SetGameTimeSec(float _sec)
+    {
+        this.gameTimeSec = _sec;
+        //Debug.Log("The time is " + this.gameTimer);
+    }
+
+    public float GetGameTimeMin()
+    {
+        return this.gameTimeMin;
+    }
+
+    public void SetGameTimeMin(float _min)
+    {
+        this.gameTimeMin = _min;
         //Debug.Log("The time is " + this.gameTimer);
     }
 }

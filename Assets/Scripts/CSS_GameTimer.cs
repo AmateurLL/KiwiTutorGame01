@@ -55,5 +55,7 @@ public class CSS_GameTimer : MonoBehaviour
 
         timerText.GetComponent<TMP_Text>().text = string.Format("{0:0}:{1:00}", minutes, seconds);
         CSS_GameManager.Instance.SetGameTimer(timerText.GetComponent<TMP_Text>().text);
+        CSS_GameManager.Instance.SetGameTimeMin(minutes);
+        CSS_GameManager.Instance.SetGameTimeSec(seconds);
     }
 }
