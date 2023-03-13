@@ -36,7 +36,7 @@ public class CSS_Ember : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" && emberCooldown <= 0.0f)
         {
-            CSS_GameManager.Instance.playerRef.transform.GetComponent<CSS_Player>().ModifyHP(-1);
+            CSS_GameManager.Instance.playerRef.transform.GetComponent<CSS_Player>().TakeDamage(1);
             emberCooldown = 0.1f;
         }
     }

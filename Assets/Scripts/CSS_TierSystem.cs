@@ -17,11 +17,6 @@ public class CSS_TierSystem : MonoBehaviour
         {
             Destroy(this);
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
         SetTrapTimeLock();
     }
     public float[] GetTrapTimeLock()

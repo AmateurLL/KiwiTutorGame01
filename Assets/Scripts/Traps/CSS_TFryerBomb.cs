@@ -58,7 +58,7 @@ public class CSS_TFryerBomb : CSS_Trap
     {
         if (collision.gameObject.tag == "Player" && isExploded)
         {
-            CSS_GameManager.Instance.playerRef.transform.GetComponent<CSS_Player>().ModifyHP(-this.GetDamage());
+            CSS_GameManager.Instance.playerRef.transform.GetComponent<CSS_Player>().TakeDamage(this.GetDamage());
             isExploded = false;
         }
     }

@@ -72,11 +72,12 @@ public class CSS_ButtonControl : MonoBehaviour
     public void Update()
     {
         timer = (Mathf.RoundToInt(CSS_GameManager.Instance.GetGameTimeMin()) * 60) + Mathf.RoundToInt(CSS_GameManager.Instance.GetGameTimeSec());
-        Debug.Log(timer);
+        //Debug.Log("Timer: " + timer);
 
+        // Detects when the timre is less than or equal to the value of trapButtons.timeLock, aka when they should be activated.
         for (int i = 0; i < trapButtons.Length; i++)
         {
-            if (timer == trapButtons[i].timeLock)
+            if (timer >= trapButtons[i].timeLock)
             {
                 trapButtons[i].buttonSlot.interactable = true;
             }

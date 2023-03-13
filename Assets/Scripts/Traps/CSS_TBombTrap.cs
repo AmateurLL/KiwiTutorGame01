@@ -73,7 +73,7 @@ public class CSS_TBombTrap : CSS_Trap
                 //Debug.Log(direction);
                 //isExplode = false;
                 isPlayerAffected = true;
-                CSS_GameManager.Instance.playerRef.transform.GetComponent<CSS_Player>().ModifyHP(this.GetDamage());
+                CSS_GameManager.Instance.playerRef.transform.GetComponent<CSS_Player>().TakeDamage(this.GetDamage());
                 Object.Destroy(this.gameObject);
             }
         }

@@ -33,7 +33,7 @@ public class CSS_TNukeTrap : CSS_Trap
         this.SetLifeTime(this.GetLifeTime() - (this.GetTimeModifier() * Time.deltaTime));
         if (this.GetLifeTime() <= 0.0f)
         {
-            CSS_GameManager.Instance.playerRef.transform.GetComponent<CSS_Player>().ModifyHP(-this.GetDamage());
+            CSS_GameManager.Instance.playerRef.transform.GetComponent<CSS_Player>().TakeDamage(this.GetDamage());
             UnityEngine.Object.Destroy(this.gameObject);
         }
     }

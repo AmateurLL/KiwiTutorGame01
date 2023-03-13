@@ -46,7 +46,7 @@ public class CSS_TBearTrap : CSS_Trap
         Debug.Log("slow down plz");
         isTrapped = true;
         _player.transform.GetComponent<CSS_Player>().SetSpdMod(0.25f);
-        _player.transform.GetComponent<CSS_Player>().ModifyHP(this.GetDamage());
+        _player.transform.GetComponent<CSS_Player>().TakeDamage(this.GetDamage());
         _player.transform.GetComponent<CSS_Player>().SetModTime(3.0f);
         _player.transform.GetComponent<CSS_Player>().SetAffect(true);
     }

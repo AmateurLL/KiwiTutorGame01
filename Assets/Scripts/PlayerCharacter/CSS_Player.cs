@@ -109,7 +109,7 @@ public class CSS_Player : MonoBehaviour
     {
         // Movement is a vector 2. These hold a x (horizontal) and y (vertical) value.
         // The horizontal position is equal to the horizontal movement, and the vertical position is equal to the velocity on the y axis.
-        if (!this.m_KBInstance.GetIsKnockBack())
+        if (!this.m_KBInstance.GetIsKnockBack() || Input.GetAxisRaw("Horizontal") != 0)
         {
             this.movement.x = horiMove;
             this.movement.y = this.m_rig2D.velocity.y;
@@ -204,9 +204,9 @@ public class CSS_Player : MonoBehaviour
         return this.hp;
     }
 
-    public void ModifyHP(int _health)
+    public void TakeDamage(int _health)
     {
-        hp += _health;
+        hp -= _health;
     }
     public Rigidbody2D GetRigid()
     {

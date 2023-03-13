@@ -5,14 +5,16 @@ using UnityEngine;
 public class CSS_BouncePad : MonoBehaviour
 {
     [SerializeField] public float jumpModAmount;
+    [SerializeField] public float thrust = 1000000000.0f;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("Bouncy bouncy");
-            CSS_GameManager.Instance.playerRef.GetComponent<CSS_Player>().SetJumpMod(jumpModAmount);
-            CSS_GameManager.Instance.playerRef.GetComponent<CSS_Player>().SetJump(true);
-
+            //CSS_GameManager.Instance.playerRef.GetComponent<CSS_Player>().SetJumpMod(jumpModAmount);
+            //CSS_GameManager.Instance.playerRef.GetComponent<CSS_Player>().SetJump(true);
+            CSS_GameManager.Instance.playerRef.GetComponent<CSS_Player>().GetRigid().AddForce(transform.up * thrust, ForceMode2D.Impulse);
         }
     }
 }
