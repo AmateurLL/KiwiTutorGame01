@@ -26,6 +26,8 @@ public class CSS_Player : MonoBehaviour
     public float spdMod;
     public int hp;
     private float modifyTime;
+    public bool knockBackTrue = false;
+    public float maxVelocity;
     [SerializeField] private bool isAffected = false; //Controls modification time
     Vector2 movement;
     // (is funny) Vector2 moveRight = new Vector2(1, 0);
@@ -45,6 +47,7 @@ public class CSS_Player : MonoBehaviour
         this.spdMod = 1.0f;
         this.hp = 100;
         this.playerObjTrans = this.transform;
+        this.maxVelocity = 7.0f;
     }
 
     // Runs when the player is initialized
@@ -109,15 +112,43 @@ public class CSS_Player : MonoBehaviour
     {
         // Movement is a vector 2. These hold a x (horizontal) and y (vertical) value.
         // The horizontal position is equal to the horizontal movement, and the vertical position is equal to the velocity on the y axis.
+        //if (knockBackTrue)
+        //{
+        //    this.movement.x = this.m_rig2D.velocity.x + horiMove/70;
+        //    this.movement.y = this.m_rig2D.velocity.y;
+        //    if (!m_GroundCheckCol.GetComponent<CSS_PlayerGroundCheck>().GetisGrounded())
+        //    {
+        //        knockBackTrue = false;
+        //    }
+        //}
         if (!this.m_KBInstance.GetIsKnockBack() || Input.GetAxisRaw("Horizontal") != 0)
         {
-            this.movement.x = horiMove;
+            this.movement.x = m_rig2D.velocity.x;
+            this.movement.x += horiMove;
+            if (this.movement.x >= maxVelocity)
+            {
+                this.movement.x = maxVelocity;
+            }
+            else if (this.movement.x <= -maxVelocity)
+            {
+                this.movement.x = -maxVelocity;
+            }
             this.movement.y = this.m_rig2D.velocity.y;
+            Debug.Log("Velocity: " + m_rig2D.velocity.x);
         }
         else
         {
-            this.movement.x = this.m_rig2D.velocity.x;
+            this.movement.x = this.m_rig2D.velocity.x + horiMove;
+            if (this.movement.x >= maxVelocity)
+            {
+                this.movement.x = maxVelocity;
+            }
+            else if (this.movement.x <= -maxVelocity)
+            {
+                this.movement.x = -maxVelocity;
+            }
             this.movement.y = this.m_rig2D.velocity.y;
+            knockBackTrue = true;
         }
 
         //Old idea for movement - Vector3 targetVelo = new Vector2((horiMove * Time.fixedDeltaTime) * 10f, this.m_rig2D.velocity.y);
