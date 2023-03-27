@@ -20,14 +20,16 @@ public class CSS_Player : MonoBehaviour
     float horiMove;
     float jumpPower;
     public float jumpMod;
-    private bool isJumping = false;
+    [SerializeField] private bool isJumping = false;
     private bool isFacingRight = true;
-    private bool isGrounded;
+    private bool isGrounded = false;
     public float spdMod;
     public int hp;
     private float modifyTime;
     public bool knockBackTrue = false;
-    public float maxVelocity;
+    public float maxVelocityX;
+    public float maxVelocityY;
+    public float maxVelocityMod;
     [SerializeField] private bool isAffected = false; //Controls modification time
     Vector2 movement;
     // (is funny) Vector2 moveRight = new Vector2(1, 0);
@@ -40,14 +42,16 @@ public class CSS_Player : MonoBehaviour
         this.m_KBInstance = this.GetComponent<CSS_EFFKnockback>();
         this.m_SpeedInstance = this.GetComponent<CSS_EFFSpeedBoost>();
         this.movement = new Vector2(0, 0);
-        this.runSpd = 7.0f;
-        this.horiMove = 20.0f;
+        this.runSpd = 10.0f; // Acts as acceleration
+        this.horiMove = 20.0f; // Acts as velocity
         this.jumpPower = 12.5f;
         this.jumpMod = 1.0f;
         this.spdMod = 1.0f;
         this.hp = 100;
         this.playerObjTrans = this.transform;
-        this.maxVelocity = 7.0f;
+        this.maxVelocityX = 10.0f;
+        this.maxVelocityY = 30.0f;
+        this.maxVelocityMod = 1.0f;
     }
 
     // Runs when the player is initialized
@@ -63,6 +67,16 @@ public class CSS_Player : MonoBehaviour
         {
             // Assigns horiMove (float) to the value given by moving on the horizontal axis
             // (-1 --> 1 and vice versa), multiplied by the variable runSpd (float).
+
+            //doesn't utilize midair momentum (everything but horiMove equation)
+            //if (Input.GetAxisRaw("Horizontal") != 0)
+            //{
+            //    horiMove = Input.GetAxisRaw("Horizontal") * this.runSpd * this.spdMod;
+            //}
+            //else
+            //{
+            //    horiMove = 0;
+            //}
             horiMove = Input.GetAxisRaw("Horizontal") * this.runSpd * this.spdMod;
             PlayerFacing();
             // If the space key is pressed, and the circle collider from the child object PlayerGroundCheck by accessing the script.
@@ -121,35 +135,71 @@ public class CSS_Player : MonoBehaviour
         //        knockBackTrue = false;
         //    }
         //}
+
+        //if (!m_GroundCheckCol.GetComponent<CSS_PlayerGroundCheck>().GetisGrounded())
+        //{
+        //    maxVelocityX = 5.0f;
+        //}
+        //else
+        //{
+        //    maxVelocityX = 10.0f;
+        //}
+
         if (!this.m_KBInstance.GetIsKnockBack() || Input.GetAxisRaw("Horizontal") != 0)
         {
             this.movement.x = m_rig2D.velocity.x;
             this.movement.x += horiMove;
-            if (this.movement.x >= maxVelocity)
+            if (this.movement.x >= (maxVelocityX * maxVelocityMod))
             {
-                this.movement.x = maxVelocity;
+                this.movement.x = (maxVelocityX * maxVelocityMod);
             }
-            else if (this.movement.x <= -maxVelocity)
+            else if (this.movement.x <= -(maxVelocityX * maxVelocityMod))
             {
-                this.movement.x = -maxVelocity;
+                this.movement.x = -(maxVelocityX * maxVelocityMod);
             }
+
             this.movement.y = this.m_rig2D.velocity.y;
+            if (this.movement.y >= (maxVelocityY * maxVelocityMod))
+            {
+                this.movement.y = (maxVelocityY * maxVelocityMod);
+            }
+            else if (this.movement.y <= -(maxVelocityY * maxVelocityMod))
+            {
+                this.movement.y = -(maxVelocityY * maxVelocityMod);
+            }
+
             Debug.Log("Velocity: " + m_rig2D.velocity.x);
         }
         else
         {
             this.movement.x = this.m_rig2D.velocity.x + horiMove;
-            if (this.movement.x >= maxVelocity)
+            if (this.movement.x >= (maxVelocityX * maxVelocityMod))
             {
-                this.movement.x = maxVelocity;
+                this.movement.x = (maxVelocityX * maxVelocityMod);
             }
-            else if (this.movement.x <= -maxVelocity)
+            else if (this.movement.x <= -(maxVelocityX * maxVelocityMod))
             {
-                this.movement.x = -maxVelocity;
+                this.movement.x = -(maxVelocityX * maxVelocityMod);
             }
+
             this.movement.y = this.m_rig2D.velocity.y;
+            if (this.movement.y >= (maxVelocityY * maxVelocityMod))
+            {
+                this.movement.y = (maxVelocityY * maxVelocityMod);
+            }
+            else if (this.movement.y <= -(maxVelocityY * maxVelocityMod))
+            {
+                this.movement.y = -(maxVelocityY * maxVelocityMod);
+            }
+
             knockBackTrue = true;
         }
+
+        // doesn't utilize midair momentum
+        //if (horiMove == 0)
+        //{
+        //    this.movement.x = 0;
+        //}
 
         //Old idea for movement - Vector3 targetVelo = new Vector2((horiMove * Time.fixedDeltaTime) * 10f, this.m_rig2D.velocity.y);
         //If jumping is true, the if statment has been fufilled
@@ -157,7 +207,17 @@ public class CSS_Player : MonoBehaviour
         {
             // This code makes the player jump equal to the jumpPover (float).
             // It then makes it so the player can not jump again until they touch the ground.
-            this.movement.y = (this.jumpPower * this.jumpMod) * this.spdMod;
+            //this.movement.y = (this.jumpPower * this.jumpMod) * this.spdMod;
+            this.movement.y = m_rig2D.velocity.y;
+            this.movement.y += (this.jumpPower * this.jumpMod) * this.spdMod;
+            if (this.movement.y >= (maxVelocityY * maxVelocityMod))
+            {
+                this.movement.y = (maxVelocityY * maxVelocityMod);
+            }
+            else if (this.movement.y <= -(maxVelocityY * maxVelocityMod))
+            {
+                this.movement.y = -(maxVelocityY * maxVelocityMod);
+            }
             this.isJumping = false;
             m_GroundCheckCol.GetComponent<CSS_PlayerGroundCheck>().SetisGrounded(false);
             this.jumpMod = 1.0f;
@@ -223,6 +283,16 @@ public class CSS_Player : MonoBehaviour
     public float GetSpdMod()
     {
         return this.spdMod;
+    }
+
+    public void SetMaxVeloMod(float _maxMod)
+    {
+        maxVelocityMod = _maxMod;
+    }
+
+    public float GetMaxVeloMod()
+    {
+        return this.maxVelocityMod;
     }
 
     public void SetHP(int _health)

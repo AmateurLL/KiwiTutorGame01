@@ -7,7 +7,7 @@ public class CSS_PlayerGroundCheck : MonoBehaviour
     //Lists Componenents of GroundCheck in the editor
     [Header("Components")]
     [SerializeField] private CircleCollider2D m_circle2D;
-    [SerializeField] private bool isGrounded = false;
+    [SerializeField] private bool isGrounded = true;
 
     //This function is one of unity's in built collision functions.
     private void OnTriggerEnter2D(Collider2D collision)
