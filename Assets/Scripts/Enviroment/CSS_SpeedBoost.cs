@@ -11,6 +11,7 @@ public class CSS_SpeedBoost : MonoBehaviour
         {
             //Debug.Log("hi1");
             collision.gameObject.GetComponent<CSS_Player>().GetIsSpeedBoostInstance().SpeedBoost();
+            Destroy(this.gameObject);
             //Object.Destroy(this.gameObject);
         }
     }

@@ -9,22 +9,20 @@ public class CSS_EFFSpeedBoost : MonoBehaviour
     [SerializeField] private float speedDuration = 5.0f;
     [SerializeField] private bool isSpeedUp = false;
 
-
-
     public void SpeedBoost()
     {
         StopAllCoroutines();
-        //Debug.Log("hi2");
         this.isSpeedUp = true;
-        CSS_GameManager.Instance.playerRef.GetComponent<CSS_Player>().SetSpdMod(speedPower);
+        CSS_GameManager.Instance.playerRef.GetComponent<CSS_Player>().SetMaxVeloMod(speedPower);
+        //This is unity's intergrated timer system.
         StartCoroutine(Reset());
-
     }
 
     private IEnumerator Reset()
     {
+        //After speedDuration seconds, the increased MAX velocity resets to default.
         yield return new WaitForSeconds(this.speedDuration);
-        CSS_GameManager.Instance.playerRef.GetComponent<CSS_Player>().SetSpdMod(speedDefault);
+        CSS_GameManager.Instance.playerRef.GetComponent<CSS_Player>().SetMaxVeloMod(speedDefault);
         this.isSpeedUp = false;
     }
 

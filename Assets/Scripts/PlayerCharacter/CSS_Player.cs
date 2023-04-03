@@ -42,8 +42,8 @@ public class CSS_Player : MonoBehaviour
         this.m_KBInstance = this.GetComponent<CSS_EFFKnockback>();
         this.m_SpeedInstance = this.GetComponent<CSS_EFFSpeedBoost>();
         this.movement = new Vector2(0, 0);
-        this.runSpd = 10.0f; // Acts as acceleration
-        this.horiMove = 20.0f; // Acts as velocity
+        this.runSpd = 8.0f; // Acts as acceleration
+        this.horiMove = 0.0f; // Acts as velocity
         this.jumpPower = 12.5f;
         this.jumpMod = 1.0f;
         this.spdMod = 1.0f;
@@ -145,53 +145,15 @@ public class CSS_Player : MonoBehaviour
         //    maxVelocityX = 10.0f;
         //}
 
-        if (!this.m_KBInstance.GetIsKnockBack() || Input.GetAxisRaw("Horizontal") != 0)
+        //This sets the velocity of the players vector to equal the rigidbody velocity +
+        //the directional movement, and ensuring it is not greater than max velocity.
+        this.movement.x = this.m_rig2D.velocity.x + horiMove;
+        this.movement.x = ChangingVelocity(this.movement.x, maxVelocityX);
+        this.movement.y = this.m_rig2D.velocity.y;
+        this.movement.y = ChangingVelocity(this.movement.y, maxVelocityY);
+
+        if (this.m_KBInstance.GetIsKnockBack())
         {
-            this.movement.x = m_rig2D.velocity.x;
-            this.movement.x += horiMove;
-            if (this.movement.x >= (maxVelocityX * maxVelocityMod))
-            {
-                this.movement.x = (maxVelocityX * maxVelocityMod);
-            }
-            else if (this.movement.x <= -(maxVelocityX * maxVelocityMod))
-            {
-                this.movement.x = -(maxVelocityX * maxVelocityMod);
-            }
-
-            this.movement.y = this.m_rig2D.velocity.y;
-            if (this.movement.y >= (maxVelocityY * maxVelocityMod))
-            {
-                this.movement.y = (maxVelocityY * maxVelocityMod);
-            }
-            else if (this.movement.y <= -(maxVelocityY * maxVelocityMod))
-            {
-                this.movement.y = -(maxVelocityY * maxVelocityMod);
-            }
-
-            Debug.Log("Velocity: " + m_rig2D.velocity.x);
-        }
-        else
-        {
-            this.movement.x = this.m_rig2D.velocity.x + horiMove;
-            if (this.movement.x >= (maxVelocityX * maxVelocityMod))
-            {
-                this.movement.x = (maxVelocityX * maxVelocityMod);
-            }
-            else if (this.movement.x <= -(maxVelocityX * maxVelocityMod))
-            {
-                this.movement.x = -(maxVelocityX * maxVelocityMod);
-            }
-
-            this.movement.y = this.m_rig2D.velocity.y;
-            if (this.movement.y >= (maxVelocityY * maxVelocityMod))
-            {
-                this.movement.y = (maxVelocityY * maxVelocityMod);
-            }
-            else if (this.movement.y <= -(maxVelocityY * maxVelocityMod))
-            {
-                this.movement.y = -(maxVelocityY * maxVelocityMod);
-            }
-
             knockBackTrue = true;
         }
 
@@ -209,15 +171,15 @@ public class CSS_Player : MonoBehaviour
             // It then makes it so the player can not jump again until they touch the ground.
             //this.movement.y = (this.jumpPower * this.jumpMod) * this.spdMod;
             this.movement.y = m_rig2D.velocity.y;
-            this.movement.y += (this.jumpPower * this.jumpMod) * this.spdMod;
-            if (this.movement.y >= (maxVelocityY * maxVelocityMod))
+            if (this.maxVelocityMod > 1)
             {
-                this.movement.y = (maxVelocityY * maxVelocityMod);
+                this.movement.y += (this.jumpPower * this.jumpMod) * 1.25f;
             }
-            else if (this.movement.y <= -(maxVelocityY * maxVelocityMod))
+            else
             {
-                this.movement.y = -(maxVelocityY * maxVelocityMod);
+                this.movement.y += (this.jumpPower * this.jumpMod) * (this.maxVelocityMod);
             }
+            this.movement.y = ChangingVelocity(this.movement.y, maxVelocityY);
             this.isJumping = false;
             m_GroundCheckCol.GetComponent<CSS_PlayerGroundCheck>().SetisGrounded(false);
             this.jumpMod = 1.0f;
@@ -227,6 +189,18 @@ public class CSS_Player : MonoBehaviour
         this.m_rig2D.velocity = this.movement;
     }
 
+    public float ChangingVelocity(float movement, float maxVelo)
+    {
+        if (movement >= (maxVelo * maxVelocityMod))
+        {
+            movement = (maxVelo * maxVelocityMod);
+        }
+        else if (movement <= -(maxVelo * maxVelocityMod))
+        {
+            movement = -(maxVelo * maxVelocityMod);
+        }
+        return movement;
+    }
     // Modifies the player's speed.
     private void ModCountdown()
     {
@@ -237,7 +211,7 @@ public class CSS_Player : MonoBehaviour
             modifyTime -= Time.deltaTime;
             if (modifyTime <= 0.0f)
             {
-                spdMod = 1.0f;
+                maxVelocityMod = 1.0f;
                 isAffected = false;
             }
         }
