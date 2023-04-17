@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CSS_MainManager : MonoBehaviour
 {
     public static CSS_MainManager Instance { get; private set; }
     static int ID = 0;
+    public TextMeshPro ChaosTxt;
+
+    [Header("Gamemode Settings")]
+    public static bool isChaosMode = false;
     private void Awake()
     {
         if (Instance == null)
@@ -15,9 +20,21 @@ public class CSS_MainManager : MonoBehaviour
         }
         else
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
         Debug.Log("ID: " + ID);
+    }
+
+    public void ToggleChaosMode()
+    {
+        if (isChaosMode == false)
+        {
+            isChaosMode = true;
+        }
+        else if (isChaosMode == true)
+        {
+            isChaosMode = false;
+        }
     }
 }

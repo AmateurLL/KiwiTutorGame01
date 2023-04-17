@@ -66,12 +66,12 @@ public class CSS_DevilPlayer : MonoBehaviour
             }
             else
             {
-                Debug.Log("Click a thing to place :(");
+                //Debug.Log("Click a thing to place :(");
             }
         }
         else
         {
-            Debug.Log("no place >:(");
+            //Debug.Log("no place >:(");
         }
     }
 }

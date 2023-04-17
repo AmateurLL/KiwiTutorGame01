@@ -17,8 +17,14 @@ public class CSS_TierSystem : MonoBehaviour
         {
             Destroy(this);
         }
+        
+    }
+
+    private void Start()
+    {
         SetTrapTimeLock();
     }
+
     public float[] GetTrapTimeLock()
     {
         return timeLockList;

@@ -76,10 +76,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3832017205610535698}
-  - component: {fileID: 7204367946028289164}
   - component: {fileID: 3204838918475528214}
   - component: {fileID: 3832017205610535699}
-  - component: {fileID: 561858494524983967}
+  - component: {fileID: 3832017204607667739}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -103,18 +102,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7204367946028289164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3832017205610535696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afb242478c825da47a138b669329c81d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3204838918475528214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,15 +140,15 @@ MonoBehaviour:
   TNukeTrapRef: {fileID: 3769442268509255973, guid: 6b39734469f39fe46a12a1f51b20f19c, type: 3}
   TTrollBoxTrapRef: {fileID: 3675414149500890525, guid: 96cc4bc7a61f9ed4f89ee93d20aa900e, type: 3}
   spinningBoxRef: {fileID: 7263047148337197075, guid: 2f703f11a7264b44794dd27770e27ea4, type: 3}
-  fryerBombRef: {fileID: 0}
-  emberRef: {fileID: 0}
+  fryerBombRef: {fileID: 6714011804827504303, guid: ac68e587d169acc47bd38acf660adb30, type: 3}
+  emberRef: {fileID: 9209289053194558492, guid: 1d032c1a3df7ae341904d5990b77c553, type: 3}
   isWin: 0
   isDead: 0
   isGameOver: 0
   gameTimer: 
   gameTimeSec: 0
   gameTimeMin: 0
---- !u!114 &561858494524983967
+--- !u!114 &3832017204607667739
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -170,6 +157,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3832017205610535696}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afb242478c825da47a138b669329c81d, type: 3}
+  m_Script: {fileID: 11500000, guid: ad2c5f0d1e13d72468e7a9a6413bf02a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeLockList: []

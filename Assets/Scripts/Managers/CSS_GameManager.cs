@@ -49,6 +49,11 @@ public class CSS_GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        CheckChaosMode();
+    }
+
     void Update()
     {
         if (isWin == true)
@@ -66,6 +71,14 @@ public class CSS_GameManager : MonoBehaviour
             GameOverUIRef.SetActive(true);
             isGameOver = true;
             isDead = false;
+        }
+    }
+
+    private void CheckChaosMode()
+    {
+        if (CSS_MainManager.isChaosMode == true)
+        {
+            Debug.Log("Chaos mode is " + CSS_MainManager.isChaosMode);
         }
     }
 
