@@ -128,7 +128,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7631393977339873078, guid: 44d6c1feef611d74186285f6f8b82a38, type: 3}
   m_PrefabInstance: {fileID: 7631393977990169495}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 7631393977990169496}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: afb242478c825da47a138b669329c81d, type: 3}
@@ -3705,3 +3705,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44d6c1feef611d74186285f6f8b82a38, type: 3}
+--- !u!1 &7631393977990169496 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7631393977339873033, guid: 44d6c1feef611d74186285f6f8b82a38, type: 3}
+  m_PrefabInstance: {fileID: 7631393977990169495}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7631393977990169497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7631393977990169496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75f9da9295154c94bbcfc10f190702a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trapData: []

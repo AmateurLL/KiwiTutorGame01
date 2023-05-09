@@ -6734,6 +6734,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3832017204607667739, guid: e0c7896ea4301a04f891ed615aaca8be, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3832017205610535696, guid: e0c7896ea4301a04f891ed615aaca8be, type: 3}
       propertyPath: m_Name
       value: Managers
@@ -6795,6 +6799,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1455105698}
     - target: {fileID: 3832017205610535699, guid: e0c7896ea4301a04f891ed615aaca8be, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3832017205610535699, guid: e0c7896ea4301a04f891ed615aaca8be, type: 3}
       propertyPath: playerRef
       value: 
       objectReference: {fileID: 23950020}
@@ -6813,6 +6821,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7204367946028289164, guid: e0c7896ea4301a04f891ed615aaca8be, type: 3}
     - {fileID: 561858494524983967, guid: e0c7896ea4301a04f891ed615aaca8be, type: 3}
+    - {fileID: 3204838918475528214, guid: e0c7896ea4301a04f891ed615aaca8be, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e0c7896ea4301a04f891ed615aaca8be, type: 3}
 --- !u!4 &1329939815 stripped
 Transform:

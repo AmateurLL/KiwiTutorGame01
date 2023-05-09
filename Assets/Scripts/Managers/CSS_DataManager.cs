@@ -30,7 +30,7 @@ public class CSS_DataManager : MonoBehaviour
         {
             Destroy(this);
         }
-
+        DontDestroyOnLoad(this.gameObject);
         this.ReadCSVFile();
     }
 
