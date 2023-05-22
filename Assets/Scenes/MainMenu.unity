@@ -342,6 +342,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 193592409}
+  - component: {fileID: 193592411}
   - component: {fileID: 193592410}
   m_Layer: 0
   m_Name: Toggle
@@ -432,6 +433,19 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
+--- !u!114 &193592411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193592408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df698bc2a06dbec46b8fbaeb9aed5929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chaosTog: {fileID: 0}
 --- !u!1 &397692771
 GameObject:
   m_ObjectHideFlags: 0
@@ -3722,4 +3736,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75f9da9295154c94bbcfc10f190702a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapData: []

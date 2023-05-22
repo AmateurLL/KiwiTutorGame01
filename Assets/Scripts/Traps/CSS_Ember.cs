@@ -9,7 +9,7 @@ public class CSS_Ember : MonoBehaviour
     [SerializeField] private float emberCooldown = 0.15f;
     private float timeModifier = 1.0f;
 
-    private void Awake()
+    private void Start()
     {
         this.lifeTime = Random.Range(3.0f, 5.0f);
     }

@@ -10,7 +10,7 @@ public class CSS_TNukeTrap : CSS_Trap
     public float TimeLeft;
     public TextMeshPro TimerTxt;
 
-    void Awake()
+    void Start()
     {
         this.InitStats(CSS_DataManager.Instance.trapData[4].GetDamage(),
             CSS_DataManager.Instance.trapData[4].GetLifeTime(),

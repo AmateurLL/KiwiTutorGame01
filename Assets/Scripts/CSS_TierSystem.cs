@@ -22,7 +22,7 @@ public class CSS_TierSystem : MonoBehaviour
 
     private void Start()
     {
-        SetTrapTimeLock();
+        //SetTrapTimeLock();
     }
 
     public float[] GetTrapTimeLock()
@@ -32,10 +32,10 @@ public class CSS_TierSystem : MonoBehaviour
 
     public void SetTrapTimeLock()
     {
-        timeLockList = new float[CSS_DataManager.Instance.GetTrapData().Count];
-        for (int i = 0; i < CSS_DataManager.Instance.GetTrapData().Count; i++)
+        timeLockList = new float[CSS_DataManager.Instance.GetTrapData().Length];
+        for (int i = 0; i < CSS_DataManager.Instance.GetTrapData().Length; i++)
         {
-            timeLockList[i] = CSS_DataManager.Instance.GetTrapData()[i].GetTimeLock();
+            timeLockList[i] = CSS_DataManager.Instance.GetTrapData()[i].timeLock;
         }
     }
 }

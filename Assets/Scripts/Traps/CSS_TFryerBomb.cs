@@ -8,7 +8,7 @@ public class CSS_TFryerBomb : CSS_Trap
     [SerializeField] public bool isExploded;
     [SerializeField] public bool isFirstPhase;
     [SerializeField] public int emberAmount;
-    void Awake()
+    void Start()
     {
         this.InitStats(CSS_DataManager.Instance.trapData[6].GetDamage(),
             CSS_DataManager.Instance.trapData[6].GetLifeTime(),

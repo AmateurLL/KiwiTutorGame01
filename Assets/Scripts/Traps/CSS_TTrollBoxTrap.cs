@@ -9,7 +9,7 @@ public class CSS_TTrollBoxTrap : CSS_Trap
     private bool doDMG;
     [SerializeField] private Vector3 _spinClown = new Vector3(0,0,50);
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         this.InitStats(CSS_DataManager.Instance.trapData[3].GetDamage(),
             CSS_DataManager.Instance.trapData[3].GetLifeTime(),

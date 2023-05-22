@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CSS_ButtonControl : MonoBehaviour
 {
+    public static CSS_ButtonControl Instance { get; private set; }
     //There is 12 buttons (as of 03/01/2023)
     [SerializeField] public Button[] buttonList;
     [SerializeField] public bool DebugButtons;
@@ -16,7 +17,6 @@ public class CSS_ButtonControl : MonoBehaviour
     // 4 = Fryer
     // 5 = Spinning
     // 6 = Nuke
-
     struct Buttons
     {
         public int ID;
@@ -33,6 +33,15 @@ public class CSS_ButtonControl : MonoBehaviour
     Buttons[] trapButtons = null;
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+
         if (!DebugButtons)
         {
             //Sets the unused buttons off by default (0 for all, 7 for unused ones only)
@@ -43,7 +52,7 @@ public class CSS_ButtonControl : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void ButtonInitialize()
     {
         trapButtons = new Buttons[CSS_TierSystem.Instance.GetTrapTimeLock().Length];
         trapButtons[0].ID = 1;
@@ -75,14 +84,17 @@ public class CSS_ButtonControl : MonoBehaviour
         //Debug.Log("Timer: " + timer);
 
         // Detects when the timre is less than or equal to the value of trapButtons.timeLock, aka when they should be activated.
-        for (int i = 0; i < trapButtons.Length; i++)
+        if (trapButtons != null)
         {
-            if (timer >= trapButtons[i].timeLock)
+            for (int i = 0; i < trapButtons.Length; i++)
             {
-                trapButtons[i].buttonSlot.interactable = true;
+                if (timer >= trapButtons[i].timeLock)
+                {
+                    trapButtons[i].buttonSlot.interactable = true;
+                }
             }
         }
-
+        
         // This is a switch statement to detect when to enable the buttons.
         //switch (CSS_GameManager.Instance.GetGameTimer())
         //{

@@ -37,4 +37,9 @@ public class CSS_MainManager : MonoBehaviour
             isChaosMode = false;
         }
     }
+
+    public bool GetChaosModeStatus()
+    {
+        return isChaosMode;
+    }
 }

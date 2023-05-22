@@ -9,6 +9,7 @@ public class CSS_GameManager : MonoBehaviour
     public static CSS_GameManager Instance { get; private set; }
     [Header("Main References")]
     [SerializeField] public GameObject playerRef;
+    [SerializeField] public GameObject mousePlayerRef;
     [SerializeField] public GameObject selectedTrapRef;
     [SerializeField] public GameObject cameraRef;
     [SerializeField] public GameObject cameraPosRef;
@@ -52,6 +53,8 @@ public class CSS_GameManager : MonoBehaviour
     private void Start()
     {
         CheckChaosMode();
+        CSS_TierSystem.Instance.SetTrapTimeLock();
+        CSS_ButtonControl.Instance.ButtonInitialize();
     }
 
     void Update()
@@ -78,7 +81,11 @@ public class CSS_GameManager : MonoBehaviour
     {
         if (CSS_MainManager.isChaosMode == true)
         {
-            Debug.Log("Chaos mode is " + CSS_MainManager.isChaosMode);
+            playerRef.GetComponent<CSS_Player>().SetSpdMod(1.5f);
+            playerRef.GetComponent<CSS_Player>().SetMaxXVelo(20.0f);
+            playerRef.GetComponent<CSS_Player>().SetMaxYVelo(30.0f);
+            playerRef.GetComponent<CSS_Player>().SetJumpPower(15.625f);
+            mousePlayerRef.GetComponent<CSS_DevilPlayer>().SetSpawnCD(3.25f);
         }
     }
 

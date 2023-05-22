@@ -50,7 +50,7 @@ public class CSS_Player : MonoBehaviour
         this.hp = 100;
         this.playerObjTrans = this.transform;
         this.maxVelocityX = 10.0f;
-        this.maxVelocityY = 30.0f;
+        this.maxVelocityY = 15.0f;
         this.maxVelocityMod = 1.0f;
     }
 
@@ -336,5 +336,25 @@ public class CSS_Player : MonoBehaviour
     public void SetJumpMod(float _jumpMod)
     {
         jumpMod = _jumpMod;
+    }
+
+    public float GetMaxXVelo()
+    {
+        return this.maxVelocityX;
+    }
+
+    public void SetMaxXVelo(float _maxx)
+    {
+        maxVelocityX = _maxx;
+    }
+
+    public float GetMaxYVelo()
+    {
+        return this.maxVelocityY;
+    }
+
+    public void SetMaxYVelo(float _maxy)
+    {
+        maxVelocityY = _maxy;
     }
 }

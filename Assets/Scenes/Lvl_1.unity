@@ -3738,11 +3738,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57c6ceee9b3c8df4b8de5c3d76019401, type: 3}
---- !u!1 &1993679836 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6457321681829276595, guid: 1e24fefa3a573a74c8442fa15f6bd12b, type: 3}
-  m_PrefabInstance: {fileID: 6457321680103449699}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2037433393 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7263047148337197074, guid: 2f703f11a7264b44794dd27770e27ea4, type: 3}
@@ -4224,7 +4219,7 @@ PrefabInstance:
     - target: {fileID: 3832017205610535699, guid: e0c7896ea4301a04f891ed615aaca8be, type: 3}
       propertyPath: playerRef
       value: 
-      objectReference: {fileID: 1993679836}
+      objectReference: {fileID: 6457321681829276595, guid: 1e24fefa3a573a74c8442fa15f6bd12b, type: 3}
     - target: {fileID: 3832017205610535699, guid: e0c7896ea4301a04f891ed615aaca8be, type: 3}
       propertyPath: cameraPosRef
       value: 
@@ -4233,6 +4228,10 @@ PrefabInstance:
       propertyPath: GameOverUIRef
       value: 
       objectReference: {fileID: 1819784948}
+    - target: {fileID: 3832017205610535699, guid: e0c7896ea4301a04f891ed615aaca8be, type: 3}
+      propertyPath: speedBoostRef
+      value: 
+      objectReference: {fileID: 2115556715233624551, guid: 0e1aed80a55679b46bbc7fc7593fcf5a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0c7896ea4301a04f891ed615aaca8be, type: 3}
 --- !u!1001 &4992340187550454394

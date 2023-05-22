@@ -12,7 +12,7 @@ public class CSS_TBlockTrap : CSS_Trap
             CSS_DataManager.Instance.trapData[0].GetName(),
             CSS_DataManager.Instance.trapData[0].GetTier());
     }
-    void Awake()
+    void Start()
     {
         this.Init();
     }

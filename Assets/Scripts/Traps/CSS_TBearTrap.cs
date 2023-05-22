@@ -16,6 +16,10 @@ public class CSS_TBearTrap : CSS_Trap
             CSS_DataManager.Instance.trapData[1].GetName(),
             CSS_DataManager.Instance.trapData[1].GetTier());
     }
+    private void Start()
+    {
+        Init();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -26,10 +30,6 @@ public class CSS_TBearTrap : CSS_Trap
         }
     }
 
-    private void Awake()
-    {
-        Init();
-    }
     void Update()
     {
         this.Deterioration();

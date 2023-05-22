@@ -74,4 +74,14 @@ public class CSS_DevilPlayer : MonoBehaviour
             //Debug.Log("no place >:(");
         }
     }
+
+    public float GetSpawnCD()
+    {
+        return this.spawnCooldown;
+    }
+
+    public void SetSpawnCD(float _cd)
+    {
+        spawnCooldown = _cd;
+    }
 }

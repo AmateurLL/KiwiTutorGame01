@@ -22,7 +22,7 @@ public class CSS_TBombTrap : CSS_Trap
         isPlayerAffected = false;
     }
 
-    private void Awake()
+    private void Start()
     {
         Init();
     }

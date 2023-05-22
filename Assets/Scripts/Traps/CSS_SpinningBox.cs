@@ -13,7 +13,7 @@ public class CSS_SpinningBox : CSS_Trap
             CSS_DataManager.Instance.trapData[5].GetTier());
     }
 
-    private void Awake()
+    private void Start()
     {
         Init();
     }
