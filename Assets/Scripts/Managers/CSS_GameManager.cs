@@ -83,7 +83,7 @@ public class CSS_GameManager : MonoBehaviour
         {
             playerRef.GetComponent<CSS_Player>().SetSpdMod(1.5f);
             playerRef.GetComponent<CSS_Player>().SetMaxXVelo(20.0f);
-            playerRef.GetComponent<CSS_Player>().SetMaxYVelo(30.0f);
+            playerRef.GetComponent<CSS_Player>().SetMaxYVelo(60.0f);
             playerRef.GetComponent<CSS_Player>().SetJumpPower(15.625f);
             mousePlayerRef.GetComponent<CSS_DevilPlayer>().SetSpawnCD(3.25f);
         }

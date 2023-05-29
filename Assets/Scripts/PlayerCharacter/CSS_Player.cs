@@ -50,7 +50,7 @@ public class CSS_Player : MonoBehaviour
         this.hp = 100;
         this.playerObjTrans = this.transform;
         this.maxVelocityX = 10.0f;
-        this.maxVelocityY = 15.0f;
+        this.maxVelocityY = 30.0f;
         this.maxVelocityMod = 1.0f;
     }
 
