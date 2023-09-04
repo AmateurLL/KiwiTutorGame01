@@ -1253,7 +1253,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fed3b56bed83b6429574e076e6ba6b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smoothTime: 0.3
   isFollowing: 0
+  target: {fileID: 0}
 --- !u!1001 &543112276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4232,6 +4234,18 @@ PrefabInstance:
       propertyPath: speedBoostRef
       value: 
       objectReference: {fileID: 2115556715233624551, guid: 0e1aed80a55679b46bbc7fc7593fcf5a, type: 3}
+    - target: {fileID: 3832017205610535699, guid: e0c7896ea4301a04f891ed615aaca8be, type: 3}
+      propertyPath: SpriteArray.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3832017205610535699, guid: e0c7896ea4301a04f891ed615aaca8be, type: 3}
+      propertyPath: SpriteArray.Array.data[0]
+      value: 
+      objectReference: {fileID: -834467388, guid: d4387901dc3ca0749b88ce6013f4a485, type: 3}
+    - target: {fileID: 3832017205610535699, guid: e0c7896ea4301a04f891ed615aaca8be, type: 3}
+      propertyPath: SpriteArray.Array.data[1]
+      value: 
+      objectReference: {fileID: -1149894216, guid: 02da5770f7e89e04aa8de0dd42576679, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0c7896ea4301a04f891ed615aaca8be, type: 3}
 --- !u!1001 &4992340187550454394

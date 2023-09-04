@@ -71,6 +71,10 @@ public class CSS_Player : MonoBehaviour
         this.Init();
     }
 
+    private void Start()
+    {
+        //CSS_GameManager.Instance.SelectChar();
+    }
     // Update is called once per frame
     void Update()
     {

@@ -182,6 +182,7 @@ MonoBehaviour:
   m_KBInstance: {fileID: 0}
   m_SpeedInstance: {fileID: 0}
   m_Anim: {fileID: 1390997169}
+  m_AnimOveride: {fileID: 0}
   runSpd: 10
   jumpMod: 0
   isJumping: 0
@@ -356,7 +357,7 @@ Animator:
   m_GameObject: {fileID: 6457321681906044345}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 587fc27634a51b6439ed6579ee25ecc6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5c925f3c73268b143aa7b6efd561f4a7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

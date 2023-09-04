@@ -6797,6 +6797,18 @@ PrefabInstance:
       propertyPath: mousePlayerRef
       value: 
       objectReference: {fileID: 1216935006}
+    - target: {fileID: 3832017205610535699, guid: e0c7896ea4301a04f891ed615aaca8be, type: 3}
+      propertyPath: SpriteArray.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3832017205610535699, guid: e0c7896ea4301a04f891ed615aaca8be, type: 3}
+      propertyPath: SpriteArray.Array.data[0]
+      value: 
+      objectReference: {fileID: -834467388, guid: d4387901dc3ca0749b88ce6013f4a485, type: 3}
+    - target: {fileID: 3832017205610535699, guid: e0c7896ea4301a04f891ed615aaca8be, type: 3}
+      propertyPath: SpriteArray.Array.data[1]
+      value: 
+      objectReference: {fileID: -1149894216, guid: 02da5770f7e89e04aa8de0dd42576679, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0c7896ea4301a04f891ed615aaca8be, type: 3}
 --- !u!4 &1329939815 stripped

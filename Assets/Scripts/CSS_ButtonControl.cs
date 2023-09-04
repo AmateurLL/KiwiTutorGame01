@@ -94,7 +94,7 @@ public class CSS_ButtonControl : MonoBehaviour
                 }
             }
         }
-        
+
         // This is a switch statement to detect when to enable the buttons.
         //switch (CSS_GameManager.Instance.GetGameTimer())
         //{
@@ -121,6 +121,17 @@ public class CSS_ButtonControl : MonoBehaviour
         //        trapButtons[6].buttonSlot.interactable = true;
         //        break;
         //}
+    }
+
+    public void CooldownIcons()
+    {
+        for (int i = 0; i < trapButtons.Length; i++)
+        {
+            if (trapButtons[i].buttonSlot.interactable)
+            {
+                //GetComponentInChildren<Image>().something???
+            }
+        }
     }
 
     public void SetBox()
