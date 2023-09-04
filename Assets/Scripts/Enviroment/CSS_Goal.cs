@@ -16,7 +16,7 @@ public class CSS_Goal : MonoBehaviour
         // "isWin" being false, the player will win, setting the isWin variable to true.
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("win (or did you?)");
+            //Debug.Log("win (or did you?)");
             CSS_GameManager.Instance.SetIsWin(true);
         }
     }

@@ -11,6 +11,9 @@ public class CSS_Player : MonoBehaviour
     [SerializeField] private Transform m_GroundCheckCol;
     [SerializeField] private CSS_EFFKnockback m_KBInstance;
     [SerializeField] private CSS_EFFSpeedBoost m_SpeedInstance;
+    [SerializeField] private Animator m_Anim;
+    [SerializeField] private AnimatorOverrideController m_AnimOveride;
+    private SpriteRenderer m_Sprite;
     private Transform playerObjTrans;
 
     //List of variables and controls (of the Player)
@@ -52,8 +55,16 @@ public class CSS_Player : MonoBehaviour
         this.maxVelocityX = 10.0f;
         this.maxVelocityY = 30.0f;
         this.maxVelocityMod = 1.0f;
+        this.m_Sprite = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        this.m_Anim = this.transform.GetChild(0).GetComponent<Animator>();
     }
 
+    public void AnimationOveride()
+    {
+        m_AnimOveride = new AnimatorOverrideController(m_Anim.runtimeAnimatorController);
+        m_Anim.runtimeAnimatorController = m_AnimOveride;
+
+    }
     // Runs when the player is initialized
     void Awake()
     {
@@ -84,6 +95,14 @@ public class CSS_Player : MonoBehaviour
             if (Input.GetKeyDown("space") && m_GroundCheckCol.GetComponent<CSS_PlayerGroundCheck>().GetisGrounded())
             {
                 this.isJumping = true;
+            }
+            if (m_GroundCheckCol.GetComponent<CSS_PlayerGroundCheck>().GetisGrounded())
+            {
+                m_Anim.SetBool("isJumping", false);
+            }
+            else if (!m_GroundCheckCol.GetComponent<CSS_PlayerGroundCheck>().GetisGrounded())
+            {
+                m_Anim.SetBool("isJumping", true);
             }
         }
         ModCountdown();
@@ -187,6 +206,8 @@ public class CSS_Player : MonoBehaviour
 
         // This sets the player's rigidbody velocity to the player's calculated movement (float).
         this.m_rig2D.velocity = this.movement;
+        m_Anim.SetFloat("Speed", Mathf.Abs(horiMove));
+        //Debug.Log(movement.x);
     }
 
     public float ChangingVelocity(float movement, float maxVelo)
@@ -223,6 +244,7 @@ public class CSS_Player : MonoBehaviour
         if (!CSS_GameManager.Instance.GetIsGameOver() && hp <= 0)
         {
             //Debug.Log("u is die");
+            m_Anim.SetBool("isAlive", false);
             CSS_GameManager.Instance.SetIsDead(true);
             //Object.Destroy(this);
         }
@@ -356,5 +378,20 @@ public class CSS_Player : MonoBehaviour
     public void SetMaxYVelo(float _maxy)
     {
         maxVelocityY = _maxy;
+    }
+
+    public Animator GetPlayerAnim()
+    {
+        return this.m_Anim;
+    }
+
+    public SpriteRenderer GetPlayerSprite()
+    {
+        return this.m_Sprite;
+    }
+
+    public void SetPlayerSprite(Sprite _spr)
+    {
+        m_Sprite.sprite = _spr;
     }
 }

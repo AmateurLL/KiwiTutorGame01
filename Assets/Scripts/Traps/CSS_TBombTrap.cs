@@ -54,7 +54,7 @@ public class CSS_TBombTrap : CSS_Trap
         this.SetLifeTime(this.GetLifeTime() - (this.GetTimeModifier() * Time.deltaTime));
         if (this.GetLifeTime() <= 0.0f)
         {
-            Debug.Log("explosion or something");
+            //Debug.Log("explosion or something");
             isExplode = true;
         }
     }
@@ -65,7 +65,7 @@ public class CSS_TBombTrap : CSS_Trap
         {
             if (collision.gameObject.tag == "Player")
             {
-                Debug.Log("boom");
+                //Debug.Log("boom");
 
                 //Vector2 direction = (collision.gameObject.transform.position - this.transform.position).normalized;
                 //CSS_GameManager.Instance.playerRef.GetComponent<CSS_Player>().GetRigid().AddForce(direction * knockbackPower, ForceMode2D.Impulse);

@@ -29,6 +29,13 @@ public class CSS_GameManager : MonoBehaviour
     [SerializeField] public GameObject emberRef;
     [Space]
 
+    [Header("Sprite References")]
+    [SerializeField] public RuntimeAnimatorController BeanCharRef;
+    [SerializeField] public RuntimeAnimatorController TVCharRef;
+    [SerializeField] public Sprite BeanCharSprite;
+    [SerializeField] public Sprite TVCharSprite;
+    [Space]
+
     [Header("Game Stats")]
     [SerializeField] private bool isWin = false;
     [SerializeField] private bool isDead = false;
@@ -36,7 +43,6 @@ public class CSS_GameManager : MonoBehaviour
     [SerializeField] private string gameTimer;
     [SerializeField] private float gameTimeSec;
     [SerializeField] private float gameTimeMin;
-
 
     private void Awake()
     {
@@ -52,6 +58,7 @@ public class CSS_GameManager : MonoBehaviour
 
     private void Start()
     {
+        SelectChar();        
         CheckChaosMode();
         CSS_TierSystem.Instance.SetTrapTimeLock();
         CSS_ButtonControl.Instance.ButtonInitialize();
@@ -73,7 +80,6 @@ public class CSS_GameManager : MonoBehaviour
             GameUIRef.SetActive(false);
             GameOverUIRef.SetActive(true);
             isGameOver = true;
-            isDead = false;
         }
     }
 
@@ -86,6 +92,27 @@ public class CSS_GameManager : MonoBehaviour
             playerRef.GetComponent<CSS_Player>().SetMaxYVelo(60.0f);
             playerRef.GetComponent<CSS_Player>().SetJumpPower(15.625f);
             mousePlayerRef.GetComponent<CSS_DevilPlayer>().SetSpawnCD(3.25f);
+        }
+    }
+
+    public void SelectChar()
+    {
+        switch (CSS_MainManager.CharacterNo)
+        {
+            case 0:
+                playerRef.GetComponent<CSS_Player>().GetPlayerAnim().runtimeAnimatorController = BeanCharRef;
+                playerRef.GetComponent<CSS_Player>().SetPlayerSprite(BeanCharSprite);
+                break;
+
+            case 1:
+                playerRef.GetComponent<CSS_Player>().GetPlayerAnim().runtimeAnimatorController = TVCharRef;
+                playerRef.GetComponent<CSS_Player>().SetPlayerSprite(TVCharSprite);
+                break;
+
+            default:
+                playerRef.GetComponent<CSS_Player>().GetPlayerAnim().runtimeAnimatorController = BeanCharRef;
+                playerRef.GetComponent<CSS_Player>().SetPlayerSprite(BeanCharSprite);
+                break;
         }
     }
 

@@ -18,7 +18,7 @@ public class CSS_EFFKnockback : MonoBehaviour
         this.isKnockedBack = true;
         Vector2 dir = (this.transform.position - _sender.transform.position).normalized;
         this.m_Rig2D.AddForce(dir * this.knockbackPower, ForceMode2D.Impulse);
-        Debug.Log(dir);
+        //Debug.Log(dir);
         StartCoroutine(Reset());
         
     }

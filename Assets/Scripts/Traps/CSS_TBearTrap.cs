@@ -43,7 +43,7 @@ public class CSS_TBearTrap : CSS_Trap
     }
     private void Trapped(GameObject _player)
     {
-        Debug.Log("slow down plz");
+        //Debug.Log("slow down plz");
         isTrapped = true;
         _player.transform.GetComponent<CSS_Player>().SetMaxVeloMod(0.5f);
         _player.transform.GetComponent<CSS_Player>().TakeDamage(this.GetDamage());

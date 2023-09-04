@@ -114,10 +114,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRef: {fileID: 0}
+  mousePlayerRef: {fileID: 0}
   selectedTrapRef: {fileID: 0}
   cameraRef: {fileID: 0}
   cameraPosRef: {fileID: 0}
-  speedBoostRef: {fileID: 0}
+  speedBoostRef: {fileID: 2115556715233624551, guid: 0e1aed80a55679b46bbc7fc7593fcf5a, type: 3}
   GameUIRef: {fileID: 0}
   GameOverUIRef: {fileID: 0}
   TBlockTrapRef: {fileID: 4992340187355166287, guid: d28a6c64e9763ef498c9c777d7e380d6, type: 3}
@@ -128,6 +129,10 @@ MonoBehaviour:
   spinningBoxRef: {fileID: 7263047148337197075, guid: 2f703f11a7264b44794dd27770e27ea4, type: 3}
   fryerBombRef: {fileID: 6714011804827504303, guid: ac68e587d169acc47bd38acf660adb30, type: 3}
   emberRef: {fileID: 9209289053194558492, guid: 1d032c1a3df7ae341904d5990b77c553, type: 3}
+  BeanCharRef: {fileID: 9100000, guid: 587fc27634a51b6439ed6579ee25ecc6, type: 2}
+  TVCharRef: {fileID: 9100000, guid: 5c925f3c73268b143aa7b6efd561f4a7, type: 2}
+  BeanCharSprite: {fileID: -834467388, guid: d4387901dc3ca0749b88ce6013f4a485, type: 3}
+  TVCharSprite: {fileID: -1149894216, guid: 02da5770f7e89e04aa8de0dd42576679, type: 3}
   isWin: 0
   isDead: 0
   isGameOver: 0

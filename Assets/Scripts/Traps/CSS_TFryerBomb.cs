@@ -31,7 +31,7 @@ public class CSS_TFryerBomb : CSS_Trap
         // when the explosion happens (and creates embers)
         if (this.GetLifeTime() <= explosionTime && !isExploded && isFirstPhase)
         {
-            Debug.Log("first explosion");
+            //Debug.Log("first explosion");
             isExploded = true;
             isFirstPhase = false;
             SummonEmbers();

@@ -132,7 +132,7 @@ public class CSS_DataManager : MonoBehaviour
         //Debug message
         foreach (TrapData Data in this.trapData)
         {
-            Debug.Log(Data.Print()); //Prints the information
+            //Debug.Log(Data.Print()); //Prints the information
         }
     }
 

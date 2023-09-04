@@ -11,6 +11,7 @@ public class CSS_MainManager : MonoBehaviour
 
     [Header("Gamemode Settings")]
     public static bool isChaosMode = false;
+    [SerializeField] public static int CharacterNo = 0;
     private void Awake()
     {
         if (Instance == null)
@@ -23,7 +24,7 @@ public class CSS_MainManager : MonoBehaviour
             Destroy(this.gameObject);
         }
         DontDestroyOnLoad(this.gameObject);
-        Debug.Log("ID: " + ID);
+        //Debug.Log("ID: " + ID);
     }
 
     public void ToggleChaosMode()
@@ -36,6 +37,11 @@ public class CSS_MainManager : MonoBehaviour
         {
             isChaosMode = false;
         }
+    }
+
+    public void CharacterSelect(int _char)
+    {
+        CharacterNo = _char;
     }
 
     public bool GetChaosModeStatus()
