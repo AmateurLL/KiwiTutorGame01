@@ -84,4 +84,9 @@ public class CSS_DevilPlayer : MonoBehaviour
     {
         spawnCooldown = _cd;
     }
+
+    public float GetSpawnTimer()
+    {
+        return this.spawnTimer;
+    }
 }

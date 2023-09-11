@@ -4235,6 +4235,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2115556715233624551, guid: 0e1aed80a55679b46bbc7fc7593fcf5a, type: 3}
     - target: {fileID: 3832017205610535699, guid: e0c7896ea4301a04f891ed615aaca8be, type: 3}
+      propertyPath: mousePlayerRef
+      value: 
+      objectReference: {fileID: 7429304118724838538}
+    - target: {fileID: 3832017205610535699, guid: e0c7896ea4301a04f891ed615aaca8be, type: 3}
       propertyPath: SpriteArray.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -4573,6 +4577,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94d5a278dc958c440929823549a1f948, type: 3}
+--- !u!1 &7429304118724838538 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7429304117983596700, guid: 94d5a278dc958c440929823549a1f948, type: 3}
+  m_PrefabInstance: {fileID: 7429304118724838537}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8670403901864277376
 PrefabInstance:
   m_ObjectHideFlags: 0

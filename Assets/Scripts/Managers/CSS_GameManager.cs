@@ -63,6 +63,7 @@ public class CSS_GameManager : MonoBehaviour
         CheckChaosMode();
         CSS_TierSystem.Instance.SetTrapTimeLock();
         CSS_ButtonControl.Instance.ButtonInitialize();
+        CSS_ButtonControl.Instance.ImageInitialize();
     }
 
     void Update()

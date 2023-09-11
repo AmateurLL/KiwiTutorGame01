@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class CSS_ButtonControl : MonoBehaviour
 {
     public static CSS_ButtonControl Instance { get; private set; }
@@ -10,6 +11,7 @@ public class CSS_ButtonControl : MonoBehaviour
     [SerializeField] public Button[] buttonList;
     [SerializeField] public bool DebugButtons;
     [SerializeField] private int timer;
+    [SerializeField] private Image[] imageList;
     // 0 = Block
     // 1 = Bear
     // 2 = Bomb
@@ -78,11 +80,20 @@ public class CSS_ButtonControl : MonoBehaviour
         trapButtons[6].timeLock = CSS_TierSystem.Instance.GetTrapTimeLock()[4];
     }
 
+    public void ImageInitialize()
+    {
+        imageList = new Image[7];
+        for (int i = 0; i < trapButtons.Length; i++)
+        {
+            imageList[i] = buttonList[i].gameObject.transform.GetChild(1).GetComponent<Image>();
+        }
+    }
+
     public void Update()
     {
         timer = (Mathf.RoundToInt(CSS_GameManager.Instance.GetGameTimeMin()) * 60) + Mathf.RoundToInt(CSS_GameManager.Instance.GetGameTimeSec());
         //Debug.Log("Timer: " + timer);
-
+        CooldownIcons();
         // Detects when the timre is less than or equal to the value of trapButtons.timeLock, aka when they should be activated.
         if (trapButtons != null)
         {
@@ -94,7 +105,6 @@ public class CSS_ButtonControl : MonoBehaviour
                 }
             }
         }
-
         // This is a switch statement to detect when to enable the buttons.
         //switch (CSS_GameManager.Instance.GetGameTimer())
         //{
@@ -129,7 +139,9 @@ public class CSS_ButtonControl : MonoBehaviour
         {
             if (trapButtons[i].buttonSlot.interactable)
             {
-                //GetComponentInChildren<Image>().something???
+                imageList[i].fillAmount = CSS_GameManager.Instance.mousePlayerRef.GetComponent<CSS_DevilPlayer>().GetSpawnTimer()
+                    / CSS_GameManager.Instance.mousePlayerRef.GetComponent<CSS_DevilPlayer>().GetSpawnCD();
+
             }
         }
     }
