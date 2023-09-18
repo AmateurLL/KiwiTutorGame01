@@ -8,6 +8,7 @@ public class CSS_MainMenu : MonoBehaviour
     public GameObject LevelSelectRef;
     public GameObject OptionsSelectRef;
     public GameObject CharSelectRef;
+    public GameObject CreditsSelectRef;
     public void Play()
     {
         LevelSelectRef.SetActive(true);
@@ -23,6 +24,12 @@ public class CSS_MainMenu : MonoBehaviour
     public void Char()
     {
         CharSelectRef.SetActive(true);
+        this.gameObject.SetActive(false);
+    }
+
+    public void Credits()
+    {
+        CreditsSelectRef.SetActive(true);
         this.gameObject.SetActive(false);
     }
 

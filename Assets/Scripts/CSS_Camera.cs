@@ -10,6 +10,7 @@ public class CSS_Camera : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     [SerializeField] private bool isFollowing;
     [SerializeField] Transform target;
+
     public void MoveCamera()
     {
         //CSS_GameManager.Instance.cameraPosRef.GetComponent<CSS_CameraSwitch>().camPosArr;
@@ -49,5 +50,10 @@ public class CSS_Camera : MonoBehaviour
     public void SetCameraFollowing(bool _follow)
     {
         isFollowing = _follow;
+    }
+
+    public void SetCameraTarget(Transform _target)
+    {
+        target = _target;
     }
 }

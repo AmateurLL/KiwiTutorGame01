@@ -16,6 +16,7 @@ public class CSS_GameManager : MonoBehaviour
     [SerializeField] public GameObject speedBoostRef;
     [SerializeField] public GameObject GameUIRef;
     [SerializeField] public GameObject GameOverUIRef;
+    [SerializeField] public GameObject CharacterSpawnRef;
     [Space]
 
     [Header("Trap References")]
@@ -30,8 +31,8 @@ public class CSS_GameManager : MonoBehaviour
     [Space]
 
     [Header("Sprite References")]
-    [SerializeField] public RuntimeAnimatorController BeanCharRef;
-    [SerializeField] public RuntimeAnimatorController TVCharRef;
+    [SerializeField] public GameObject BeanCharRef;
+    [SerializeField] public GameObject TVCharRef;
     //[SerializeField] public Sprite[] BeanCharSprite;
     //[SerializeField] public Sprite[] TVCharSprite;
     [SerializeField] public Sprite[] SpriteArray;
@@ -59,7 +60,8 @@ public class CSS_GameManager : MonoBehaviour
 
     private void Start()
     {
-        //SelectChar();        
+        SelectChar();    
+        cameraRef.transform.GetComponent<CSS_Camera>().SetCameraTarget(playerRef.transform);
         CheckChaosMode();
         CSS_TierSystem.Instance.SetTrapTimeLock();
         CSS_ButtonControl.Instance.ButtonInitialize();
@@ -102,18 +104,15 @@ public class CSS_GameManager : MonoBehaviour
         switch (CSS_MainManager.CharacterNo)
         {
             case 0:
-                //playerRef.GetComponent<CSS_Player>().GetPlayerAnim().runtimeAnimatorController = BeanCharRef;
-                playerRef.GetComponent<CSS_Player>().SetPlayerSprite(SpriteArray[0]);
+                CharacterSpawnRef.transform.GetComponent<CSS_CharSpawn>().SpawnChar(BeanCharRef);
                 break;
 
             case 1:
-                //playerRef.GetComponent<CSS_Player>().GetPlayerAnim().runtimeAnimatorController = TVCharRef;
-                playerRef.GetComponent<CSS_Player>().SetPlayerSprite(SpriteArray[1]);
+                CharacterSpawnRef.transform.GetComponent<CSS_CharSpawn>().SpawnChar(TVCharRef);
                 break;
 
             default:
-                //playerRef.GetComponent<CSS_Player>().GetPlayerAnim().runtimeAnimatorController = BeanCharRef;
-                playerRef.GetComponent<CSS_Player>().SetPlayerSprite(SpriteArray[0]);
+                CharacterSpawnRef.transform.GetComponent<CSS_CharSpawn>().SpawnChar(BeanCharRef);
                 break;
         }
     }
