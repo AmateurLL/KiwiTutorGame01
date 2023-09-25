@@ -12,6 +12,10 @@ public class CSS_MainManager : MonoBehaviour
     [Header("Gamemode Settings")]
     public static bool isChaosMode = false;
     [SerializeField] public static int CharacterNo = 0;
+    [Space]
+    [Header("Visual Settings")]
+    [SerializeField] public static int frameRate = 60;
+    [SerializeField] public bool isFullscreen = false;
     private void Awake()
     {
         if (Instance == null)
@@ -26,7 +30,34 @@ public class CSS_MainManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         //Debug.Log("ID: " + ID);
     }
+    private void Start()
+    {
+        Application.targetFrameRate = frameRate;
+    }
 
+    public void Update()
+    {
+        if (Input.GetKeyDown("f11"))
+        {
+            ToggleFullScreen();
+        }
+    }
+    public void ToggleFullScreen()
+    {
+        
+        if (!isFullscreen)
+        {
+            Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+            Debug.Log("No alt f4 allowed");
+            isFullscreen = true;
+        }
+        else
+        {
+            Screen.fullScreenMode = FullScreenMode.Windowed;
+            Debug.Log("alt f4 allowed");
+            isFullscreen = false;
+        }
+    }
     public void ToggleChaosMode()
     {
         if (isChaosMode == false)

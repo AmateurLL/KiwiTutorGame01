@@ -7,7 +7,7 @@ public class CSS_Credits : MonoBehaviour
     bool isMoveRight = false;
     bool ChaosCredits = false;
     public GameObject MainMenuRef;
-    [SerializeField] float speed = 0.15f;
+    [SerializeField] float speed = 2.5f;
     public GameObject ChaosButtonRef;
 
     public void BackButton()
@@ -26,7 +26,7 @@ public class CSS_Credits : MonoBehaviour
     {
         if (ChaosCredits)
         {
-            Vector3 temp = new Vector3(speed, 2.0f * Mathf.Sin(this.transform.position.x / 20), 0.0f);
+            Vector3 temp = new Vector3(speed * 10.0f, 2.0f * Mathf.Sin(this.transform.position.x / 20), 0.0f);
 
             if (isMoveRight)
             {

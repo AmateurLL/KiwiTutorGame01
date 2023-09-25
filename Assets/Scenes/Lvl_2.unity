@@ -705,6 +705,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5342116086160433342, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291263850559436261, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291263850559436261, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 719.77
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291263850559436261, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291263850559436261, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.001049
+      objectReference: {fileID: 0}
     - target: {fileID: 8670403901102158256, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_Name
       value: Button03
@@ -936,6 +956,18 @@ PrefabInstance:
     - target: {fileID: 8670403901881396903, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_Colors.m_FadeDuration
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670403901951193121, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670403901951193121, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 8670403901951193121, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 720
       objectReference: {fileID: 0}
     - target: {fileID: 8670403902122425475, guid: b6e3417e7aca80d4f9831ee77a6efaaa, type: 3}
       propertyPath: m_Name
